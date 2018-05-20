@@ -1,0 +1,24 @@
+body {
+	color: #333;
+    background-color: #fff;
+}
+/*---------------------- header --------------------*/
+.banner {
+	background-image: url(https://i1.mifile.cn/a4/cms_15081560158371_dLfRw.jpg);
+	background-position: 50%;
+
+}
+.menuBar {
+	color: #b0b0b0;
+	background-color: #333;
+}
+/*---------------------- container -----------*/
+.logo {
+	background-image: url(https://s01.mifile.cn/i/mi-logo.png);
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-color: #ff6700;
+}
+.containerNav ul {
+	color: #333;
+}

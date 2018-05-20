@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style>
+		a {
+			background-color: yellow;
+			text-decoration: none;
+			vertical-align: bottom;
+			width: 180px;
+			height: 50px; 
+			border-bottom: 5px solid red;
+			display: table-cell;
+		}
+		a:hover {
+			transition: 1s linear;
+			font-size: 30px;
+		}
+		div,table {
+			padding: 0 0 8px 8px;
+			background-color: gray;
+			width: 180px;
+		}
+		.clearfix::after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		section {
+			float: left;
+			margin: 10px;
+		}
+		.style div {
+			width: 60px;
+			height: 60px;
+			border: 4px solid blue;
+			box-sizing: border-box;
+			float: left;
+			position: relative;
+		}
+		.style div:nth-child(-n+3) {
+			position: relative;
+			top: 8px;
+		}
+		.style div:nth-child(-n+6):nth-child(n+4) {
+			position: relative;
+			top: 4px;
+		}
+		.style div:nth-child(2),.style div:nth-child(5),.style div:nth-child(8) {
+			position: relative;
+			right: 4px;
+		}
+		.style div:nth-child(3n) {
+			right: 8px;
+		}
+		.plan1 div:hover {
+			border-color: red;
+			z-index: 99;
+		}
+		.plan2 {
+			border-collapse: collapse;
+		}
+		.plan2 tr,.plan2 col {
+			border: 4px solid blue;
+			box-sizing: border-box;
+		}
+		.plan2 tr td {
+			width: 40px;
+			height: 60px;
+			box-sizing: border-box;
+		}
+		.plan2 tr td:hover {
+			border: 4px solid red;
+		}
+		.plan3 div:hover::before {
+			content: "";
+			display: block;
+			width: 60px;
+			height: 60px;
+			box-sizing: border-box;
+			border: 4px solid red;
+			position: relative;
+			top: -4px;
+			left: -12px;
+			z-index: 999;
+		}
+		#plan4 div {
+			margin: 0px 0;
+			width: 48px;
+			height: 48px;
+			outline: 4px solid blue;
+			display: inline-block;
+		}
+		#plan4 div:hover {
+			outline-color: red;
+			z-index: 999;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<h6>方案一：定位 + z-index</h6>
+		<div class="style plan1 clearfix">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</section>
+	<section>
+		<h6>方案二：table</h6>
+		<table class="plan2">
+			<col>
+			<col>
+			<col>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</section>
+	<section>
+		<h6>方案三：伪元素</h6>
+		<div class="plan3 style clearfix">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</section>
+	<section>
+		<h6>方案四：outline</h6>
+		<div id="plan4" class="plan4 clearfix">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</section>
+	<br />
+	<a href="practice-菜单.html">菜单</a>
+	<br />
+	<a href="practice-QQ邮箱布局.html">QQ邮箱布局</a>
+	<br />
+	<a href="practice-词典.html">词典布局</a>
+</body>
+</html>

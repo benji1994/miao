@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+		}
+		header {
+			background-color: #b82525;
+			width: 100%;
+			font-size: 100px;
+			width: 100%;
+			color: white;
+			text-align: right;
+			padding: 0px 50px;
+		}
+		main {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		table {
+			width: 300px;
+			text-align: center;
+			margin: 10px 0px;
+		}
+		table caption {
+			color: #b82525;
+			font-weight: bold;
+			font-size: 25px;
+			padding: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<header>2018</header>
+	<main></main>
+	<script>
+		function dayOfMonth(year, month) {
+			var days
+
+			days = year * 365
+			days += parseInt(year / 4) - parseInt(year / 100) + parseInt(year / 400)
+
+			while(month > 1) {
+				days += whichMonth(month - 1, year)
+				month--
+			}
+
+			return days % 7
+		}
+
+		function initTbody(year, month) {
+			var tbody = document.createElement("tbody")
+			
+			var day = dayOfMonth(year, month)
+			var count = 1
+			for(var i = 0; i < 6;  i++) {
+				var tr = document.createElement("tr")
+				for(var j = 0; j < 7; j++) {
+					var td = document.createElement("td")
+					if(count > 1) {
+						if(count <= whichMonth(month)){
+							td.innerHTML = count
+							count++
+						} else {
+							td.innerHTML = "&nbsp;"
+							//td.style.emptyCells = "hide"
+						}
+					} else {
+						if(j >= day &&  count <= whichMonth(month) + day) {
+							td.innerHTML = count
+							count++
+						} else {
+							td.innerHTML = "&nbsp;"
+							//td.style.emptyCells = "hide"
+						}
+					}
+					tr.appendChild(td)
+				}
+				tbody.appendChild(tr)
+			}
+
+			return tbody
+		}
+
+		function initTable(month, year) {
+			var table = document.createElement("table")
+			
+			var caption = document.createElement("caption")
+			caption.innerHTML = month
+			table.appendChild(caption)
+
+			var weeks = ["日", "一", "二", "三", "四", "五", "六"]
+			var tr = document.createElement("tr")
+			for(var i = 0; i < 7; i++) {
+				var th = document.createElement("th")
+				th.innerHTML = weeks[i]
+				tr.appendChild(th)
+			}
+			tr.id = "th"
+			table.appendChild(tr)
+
+			table.appendChild(initTbody(year, month))
+
+			return table
+		}
+
+		function isLeapYear(year) {
+			var data = [4, 100, 400]
+
+			for(var i = data.length - 1; i >= 0; i--) {
+				if(year % data[i] === 0) {
+					if(i % 2 === 0) {
+						return true
+					} else {
+						return false
+					}
+				}
+			}
+
+			return false
+		}
+
+		function whichMonth(month, year) {
+			var months = [31, [29, 28], 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+			if(month == 2) {
+				if(isLeapYear(year)) {
+					return months[1][0]
+				} else {
+					return months[1][1]
+				}
+			} else {
+				return months[month - 1]
+			}
+		}
+
+		
+
+
+		(function init() {
+			var year = 2018
+			var main = document.getElementsByTagName('main')[0]
+
+			var header = document.getElementsByTagName("header")[0]
+			header.innerHTML = year
+
+			for(var i = 1; i <= 12; i++) {
+				var table = initTable(i, year)
+
+				main.appendChild(table)
+			}
+		})()
+	</script>
+</body>
+</html>

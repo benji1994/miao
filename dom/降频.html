@@ -1,0 +1,16 @@
+<script>
+	function throttle(f, duration) {
+	  var lastRunTime = -Infinity
+	  var lastResult
+	  return function(...args) {
+	    var now = Date.now()
+	    if (now - lastRunTime > duration) {
+	      lastResult = f.call(this, ...args)
+	      lastRunTime = now
+	    }
+	    return lastResult
+	  }
+	}
+
+	function 
+</script>

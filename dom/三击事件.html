@@ -1,0 +1,20 @@
+<html>
+	<script>
+		var lastClick = 0
+		var lastLastClick = 0
+		var currClick = 0
+		addEventListener('click', fucntion(e) {
+			lastLastClick = lastClick
+			lastClick = currClick
+			currClick = Date.now()
+
+			if(currClick - lastClick < 300 && lastClick - lastLastClick < 300) {
+				lastClick = 0
+				lastLastClick = 0
+				currClick = 0
+
+				console.log('tripple click')
+			}
+		})
+	</script>
+</html>

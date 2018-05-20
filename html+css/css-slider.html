@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.slider {
+			width: 1226px;
+			height: 460px;
+			margin: auto;
+			position: relative;
+		}
+		div img {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		:target {
+			z-index: 999;
+		}
+		a span {
+			width: 6px;
+			height: 6px;
+			border: 1px solid #5C6887;
+			border-radius: 3px;
+			display: inline-block;
+			margin: 2px;
+			//background-color: #FF6700;
+		}
+		.links {
+			z-index: 9999;
+			position: absolute;
+			right: 50px;
+			bottom: 20px;
+		}
+		.links span:visited {
+			background-color: #E8E4E0;
+		}
+		.links span:hover {
+			background-color: #E8E4E0;
+		}
+	</style>
+</head>
+<body>
+	<div class="slider">
+		<img id="pic1" src="https://i1.mifile.cn/a4/xmad_15077714738381_erTKQ.jpg">
+		<img id="pic2" src="https://i1.mifile.cn/a4/xmad_15058906332794_gQDJX.jpg">
+		<img id="pic3" src="https://i1.mifile.cn/a4/xmad_15077096831138_QALce.jpg">
+		<img id="pic4" src="https://i1.mifile.cn/a4/xmad_15083090121139_ksdyL.jpg">
+		<img id="pic5" src="https://i1.mifile.cn/a4/xmad_15057916296159_nUYKy.jpg">
+		<img id="pic6" src="https://i1.mifile.cn/a4/xmad_15035620079519_UKADe.jpg">
+		<div class="links">
+			<a href="#pic1"><span></span></a>
+			<a href="#pic2"><span></span></a>
+			<a href="#pic3"><span></span></a>
+			<a href="#pic4"><span></span></a>
+			<a href="#pic5"><span></span></a>
+			<a href="#pic6"><span></span></a>
+		</div>
+	</div>
+	
+</body>
+</html>

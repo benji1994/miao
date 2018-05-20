@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:svg="http://www.w3.org/2000/svg">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		header {
+			display: block;
+		}
+
+		body {
+			font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			line-height: 1.4em; 
+			background: #f5f5f5;
+			color: #4d4d4d;
+			font-weight: 300;
+		}
+
+		.todoapp {
+			min-width: 230px;
+			max-width: 550px;
+			background: #fff;
+			margin: 130px auto;
+			position: relative;
+			box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+		}
+		
+		.todoapp h1 {
+			position: absolute;
+			top: -155px;
+			width: 100%;
+			font-size: 100px;
+			font-weight: 100;
+			text-align: center;
+			color: rgba(175, 47, 47, 0.15);
+			text-rendering: optimizeLegibility;
+		}
+
+		.new-todo {
+			position: relative;
+			margin: 0;
+			width: 100%;
+			font-size: 24px;
+			font-family: inherit;
+			font-weight: inherit;
+			line-height: 1.4em;
+			outline: none;
+			color: inherit;
+			box-sizing: border-box;
+		}
+
+		.new-todo {
+			padding: 16px 16px 16px 60px;
+			border: none;
+			background: rgba(0, 0, 0, 0.003);
+			box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.003);
+		}
+
+		.main {
+			border-top: 1px solid #e6e6e6;
+			position: relative;
+			z-index: 2;
+		}
+
+		button, input[type='checkbox'] {
+			outline: none;
+		}
+
+		.footer {
+			color: #777;
+			padding: 10px 15px;
+			height: 20px;
+			text-align: center;
+			border-top: 1px solid #e6e6e6;
+		}
+
+		.todo-count {
+			float: left;
+			text-align: left;
+		}
+
+		.filters {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			position: absolute;
+			right: 0;
+			left: 0;
+		}
+
+		.filters li {
+			display: inline;
+		}
+
+		.filters li a {
+			color: inherit;
+			margin: 3px;
+			padding: 3px 7px;
+			text-decoration: none;
+			border: 1px solid transparent;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+
+		.filters li a:hover {
+			border-color: rgba(175, 47, 47, 0.1);
+			background-color: #EAD7D7;
+		}
+
+		.filters li a.selected {
+			border-color: rgba(175, 47, 47, 0.2);
+			background-color: #EAD7D7;
+		}
+
+		.clear-completed {
+			float: right;
+			line-height: 20px;
+			text-decoration: none;
+			cursor: pointer;
+			position: relative;
+		}
+
+		.clear-completed:hover {
+			text-decoration: underline;
+		}
+
+		button {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			background: none;
+			font-size: 100%;
+			vertical-align: baseline;
+			font-family: inherit;
+			font-weight: inherit;
+			color: inherit;
+		}
+
+		.todo-list {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.todo-list li {
+			position: relative;
+			font-size: 24px;
+			border-bottom: 1px solid #ededed;
+		}
+
+		.todo-list li:last-child {
+			border-bottom: none;
+		}
+
+		.toggle-all {
+			position: absolute;
+		    top: -42px;
+		    left: 20px;
+		    margin: auto 0;
+		}
+
+		.todo-list li .toggle {
+			left: 20px;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			margin: auto 0;
+		}
+
+/*		.todo-list li .toggle::after {
+			content: url(data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" …="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>);
+		}*/
+
+		.todo-list li label {
+			white-space: pre-line;
+			word-break: break-all;
+			padding: 15px 60px 15px 15px;
+			margin-left: 45px;
+			display: block;
+			line-height: 1.2;
+			transition: color 0.4s;
+			position: relative;
+		}
+
+		.todo-list li .destroy {
+			display: none;
+			position: absolute;
+			top: 0;
+			right: 10px;
+			bottom: 0;
+			width: 40px;
+			height: 40px;
+			margin: auto 0;
+			font-size: 30px;
+			color: #cc9a9a;
+			transition: color 0.2s ease-out;
+		}
+
+		.todo-list li:hover .destroy {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class='todoapp'>
+		<header>
+			<h1>todos</h1>
+			<input type="text" class='new-todo' placeholder="What needs to be done?" name="">
+		</header>
+		<section class='main'>
+			<!-- <input type="checkbox" class='toggle-a 
+			ll'> -->
+			<ul class='todo-list'></ul>
+		</section>
+		<footer class='footer'>
+			<span class='todo-count'>
+				<strong>8</strong>
+				items left
+			</span>
+			<ul class="filters">
+				<li href='#'>
+					<a>All</a>
+				</li>
+				<li href='#'>
+					<a>Active</a>
+				</li>
+				<li href='#'>
+					<a>Completed</a>
+				</li>
+			</ul>
+			<button class="clear-completed">Clear completed</button>
+		</footer>
+	</div>
+	<script>
+		var items = {
+			all: [1,2,3],
+			active: [],
+			completed: [],
+			put: function (item) {
+				this.all.push(item)
+				this.active.push(this.all.length)
+			},
+			done: function (index) {
+				this.completed.push(index)
+			}
+		}
+		
+		window.onload = function init() {
+			initList()
+			addItems()
+			addFilterAClick()
+		}
+
+		function updateTodoCount() {
+			var todoCount = document.querySelector('.todo-count')
+			var strong = todoCount.querySelector('strong')
+
+			var count = items.all.length
+			strong.innerHTML = count
+		}
+
+		function dblclickItem(event) {
+			var input = document.createElement('input')
+			input.type = 'text'
+			
+			// input 样式
+			input.style.padding = '15px 60px 15px 15px'
+			input.style.whiteSpace = 'pre-line'
+			input.style.wordBreak = 'break-all'
+			input.style.lineHeight = '1.2'
+			input.style.position = 'absolute'
+			input.style.top = '0px'
+			input.style.right = '0px'
+			input.style.height = '100%'
+			input.style.width = '100%'
+			input.style.boxSizing = 'border-box'
+			input.style.fontSize = '24px'
+			input.value = event.target.innerHTML
+			
+			input.addEventListener('blur', function(event) {
+				event.target.parentNode.removeChild(event.target)
+			})
+
+			event.target.appendChild(input)
+		}
+
+		function initToggleAllInput() {
+			var toggleAllInput = document.createElement('input')
+			toggleAllInput.type = 'checkbox'
+			toggleAllInput.className = 'toggle-all'
+			
+			var section = document.querySelector('.main')
+			section.appendChild(toggleAllInput)
+		}
+
+		function initList() {
+			var i = items.all
+			if(i.length === 0) return
+
+			initToggleAllInput()
+
+			i.forEach(function(txt) {
+				appendList(txt)
+			})
+
+			updateTodoCount()
+		}
+
+		// 添加 list
+		function appendList(txt) {
+			var ul = document.querySelector('ul')
+
+			var li = document.createElement('li')
+
+			var div = document.createElement('div')
+			div.className = 'view'
+
+
+			var input = document.createElement('input')
+			input.setAttribute('type', 'checkbox')
+			input.className = 'toggle'
+
+			var label = document.createElement('label')
+			label.addEventListener('dblclick', dblclickItem)
+			label.appendChild(document.createTextNode(txt))
+
+			var button = document.createElement('button')
+			button.innerHTML = '×'
+			button.className = 'destroy'
+			button.addEventListener('click', function(event) {
+				//--------------------------------
+			})
+
+			div.appendChild(input)
+			div.appendChild(label)
+			div.appendChild(button)
+
+			li.appendChild(div)
+			ul.appendChild(li)
+
+			updateTodoCount()
+		}
+
+		// 注册 new-todo 回车事件
+		function addItems() {
+			var newTodo = document.querySelector('.new-todo')
+			var existToggleAllInput = false
+			newTodo.addEventListener('keyup',function (event) {
+				if(event.key == 'Enter') {
+					var txt = event.target.value
+					txt = txt.trim()
+					if(txt != '') {
+						if(existToggleAllInput == false) {
+							initToggleAllInput()
+							existToggleAllInput = true
+						}
+						items.put(txt)
+						newTodo.value = ''
+						appendList(txt)
+					}
+				}
+			})
+		}
+
+		function addFilterAClick() {
+			var footerUl= document.querySelector('.filters')
+			var a = footerUl.querySelectorAll('a')
+			a.forEach(function(item) {
+				item.addEventListener('click', function(e) {
+					a.forEach(function(a) {
+						a.className = ''
+					})
+					this.className = 'selected'
+				})
+			})
+		}
+	</script>
+</body>
+</html>

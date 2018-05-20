@@ -1,0 +1,146 @@
+<script>
+	var Complex = function(r, i) {
+		this.real = r
+		this.imag = i
+	}
+	Complex.prototype = {
+		constructor: Complex,
+		get complexNumber() {
+			return this.real + '+' + this.imag + 'i'
+		},
+		add: function(complex) {
+			this.real += complex.real
+			this.imag += complex.imag
+
+			return this.complexNumber
+		},
+		subtraction: function(complex) {
+			this.real -= complex.real
+			this.imag -= complex.imag
+
+			return this.complexNumber
+		},
+		multiply: function(complex) {
+			this.real *= complex.real
+			this.imag *= complex.imag
+
+			return this.complexNumber
+		},
+		divide: function(complex) {
+			this.real /= complex.real
+			this.imag /= complex.imag
+
+			return this.complexNumber
+		}
+	}
+	// var complex1 = new Complex(1,2)
+	// var complex2 = new Complex(1,3)
+	// console.log(complex1.complexNumber + '	' + complex2.complexNumber)
+	// complex1.add(complex2)
+	// console.log('add: ' + complex1.complexNumber)
+	// complex1.subtraction(complex2)
+	// console.log('subtraction: ' + complex1.complexNumber)
+	// complex1.multiply(complex2)
+	// console.log('multiply: ' + complex1.complexNumber)
+	// complex1.divide(complex2)
+	// console.log('divide: ' + complex1.complexNumber)
+	
+
+	var Vector = function(ai, bj, ck) {
+		this.a = ai
+		this.b = bj
+		this.c = ck
+	}
+	Vector.prototype = {
+		constructor: Vector,
+		
+		get vector() {
+			return this.a + 'i + ' + this.b + 'j + ' + this.c + 'k'
+		},
+
+		add: function(vector) {
+			this.a += vector.a
+			this.b += vector.b
+			this.c += vector.c
+		},
+
+		minux: function() {
+			this.a *= -1
+			this.b *= -1 
+			this.c *= -1 
+		}
+	}
+	// var vector1 = new Vector(1,2,3) 
+	// var vector2 = new Vector(4,5,6)
+	// console.log(vector1.vector + '	' + vector2.vector)
+	// vector1.add(vector2)
+	// console.log('add: ' + vector1.vector)
+	// var vector3 = new Vector(-3, 4, -4)
+	// vector3.minux()
+	// console.log('minux: ' + vector3.vector)
+	
+	var Set = function() {
+		this.set = Array.from(arguments)
+	}
+	Set.prototype = {
+		constructor: Set,
+
+		add: function() {
+			this.set = this.set.concat(Array.from(arguments))
+		},
+
+		remove: function() {
+			var argsArr = Array.from(arguments)
+			this.set = this.set.filter(function(x) {
+				// if(argsArr.some(function(y) {
+				// 	return x === y
+				// }))
+				// 	return false
+				// else
+				// 	return true
+				if(this.has(x))
+					return false
+				else
+					return true
+			})
+		},
+
+		has: function(x) {
+			return this.set.some(function(y) {
+				return x === y
+			})
+		},
+	}
+	// var set1 = new Set(1,3,54,6,87,8)
+	// console.log(set1.set)
+	// set1.add(2,9,9,9,9)
+	// console.log('add: ' + set1.set)
+	// set1.remove(9)
+	// console.log('remove: ' + set1.set)
+	// console.log(set1.has(234))
+	
+	var Map = function(obj) {
+		this.map = obj
+	}
+	Map.prototype = {
+		constructor: Map,
+
+		get: function(key) {
+			if(key in this.map) {
+				return this.map[key]
+			} else {
+				return false
+			}
+		},
+
+		set: function(key, val) {
+			this.map[key] = val
+		}
+	}
+	var map = new Map({fds: 2, fdsa: 3})
+	console.log(map.map)
+	console.log(map.get('fdsfdsa'))
+	map.set(432, 'gsfd')
+	console.log(map.map)
+	console.log(map.constructor)
+</script>

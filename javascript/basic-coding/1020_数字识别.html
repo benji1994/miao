@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		a {
+			padding: 20px;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<a href="1002_三角形.html">1002_三角形</a>
+	<a href="1004_填充矩形.html">1004_填充矩形</a>
+	<a href="1010_邮寄包裹.html">1010_邮寄包裹</a>
+	<a href="1013_识别三角形.html">1013_识别三角形</a>
+	<a href="1014_写评语.html">1014_写评语</a>
+	<a href="1015_星期几.html">1015_星期几</a>
+	<a href="1016_计算天数.html">1016_计算天数</a>
+	<a href="1018_打电话.html">1018_打电话</a>
+	<a href="1019_分段函数.html">1019_分段函数</a>
+	<a href="1020_数字识别.html">1020_数字识别</a>
+	<hr />
+	<p>点击链接查看，如果看不到结果，请打开控制台。</p>
+	<script>
+		function weishu(number) {
+			var m = 10;
+			var i = 1;
+			do {
+				var n = number / m;
+				if(n < 1) {
+					return i;
+				}
+				m *= 10;
+				i++;
+			} while(i < 5);
+
+			return 4;
+		}
+		function discern(number, i) {
+			var ge = number % 10;
+			
+			if(i === 1) {
+				console.log(number + "的位数为：" + i);
+				console.log("高位到低位输出为：" + ge);
+				return;
+			}
+
+			var j = 1;
+			var m = 10;
+			var arr = [];
+			while(j < i) {
+				var n = (number - number % m) / m % 10;
+				arr.unshift(n);
+				m *= 10;
+				j++;
+			}
+			arr.push(ge);
+			console.log(number + "的位数为：" + i);
+			console.log("高位到低位输出为：" + arr);
+		}
+		(function init() {
+			var number = Number(prompt("请输入数字："));
+			if(number <= 0) {
+				alert("error: 必须为正整数");
+				return;
+			}
+			discern(number, weishu(number));
+		})();
+	</script>
+</body>
+</html>

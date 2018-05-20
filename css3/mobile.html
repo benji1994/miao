@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mobile.html</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script type="text/javascript" src="http://at.alicdn.com/t/font_460061_ipqpozsqnse5ewmi.js"></script>
+	<style type="text/css">
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+			font-size: 14px;
+			line-height: 1.4;
+			width: 100%;
+			padding: 0;
+			margin: 0;
+			color: #24292c;
+			background-color: #fafbfc;
+			word-wrap: break-word;
+			word-break: break-all;
+		}
+		*{
+			box-sizing: border-box;
+		}
+		/*********** header **************/
+		.icon {
+       		width: 1em; 
+       		height: 1em;
+       		vertical-align: -0.15em;
+       		fill: currentColor;
+       		overflow: hidden;
+    	}
+    	header {
+    		background-color: #1e2327;
+    		position: relative;
+    	}
+    	header div {
+    		color: #fff;
+    		text-align: center;
+    		font-weight: 600;
+    		font-size: 14px;
+    		white-space: nowrap;
+    		overflow: hidden;
+
+    	}
+    	#logo {
+			padding: 0px 8px;
+			font-size: 35px;
+			position: absolute;
+			left: 10px;
+    	}
+    	header div:nth-child(2)  .icon {
+			font-size: 24px;
+			display: inline-block;
+    	}
+    	header div:nth-child(2) {
+    		text-overflow: ellipsis;
+    		height: 50px;
+    		padding-top: 10px; 
+    	}
+    	header div:nth-child(2) span {
+    		color: rgba(255,255,255,0.75);
+    		
+    	}
+    	header div:last-child {
+    		padding: 10px 7px;
+    		padding-bottom: 20px;
+    		margin-top: -14px; 
+    	}
+    	header div:last-child span {
+    		padding: 0 8px;
+    	}
+    	.circle::after {
+    		content: "0";
+    		display: inline-block;
+    		padding: 2px 5px;
+    		font-size: 12px;
+    		font-weight: 600;
+    		line-height: 1;
+    		border-radius: 20px;
+    		background-color: rgba(255,255,255,0.15);
+    		margin-left: 4px;
+    	}
+    	#header-nav span:not(:first-child) {
+    		color: rgba(255,255,255,0.75);
+    		font-weight: normal;
+    	}
+    	/********** content *************/
+    	content .link {
+    		margin: 15px;
+    		font-size: 13px;
+    		color: #586069;
+    		border: none;
+    	}
+    	content .link a {
+    		color: #5CAD7D;
+    		text-decoration: none;
+    	}
+    	content > div {
+			border: 1px solid #d1d5da;
+			margin: 15px;
+			border-radius: 3px;
+    	}
+    	table {
+    		width: 100%;
+    		border-collapse: collapse;
+    		vertical-align: middle;
+    		line-height: 1.5;
+			overflow: hidden;
+			padding: 10px 15px;
+			table-layout: fixed;
+    	}
+    	table .icon {
+    		font-size: 16px;
+    	}
+    	table .green.plant {
+			color: #5CAD7D;
+    		text-align: center;
+    		font-weight: 500;
+    	}
+    	table td {
+    		padding: 10px 15px;
+    	}
+    	table .rightBorder {
+    		border-right: 1px solid #d1d5da;
+    	}
+    	table .trBorder {
+    		border-top: 1px solid #d1d5da;
+    		border-bottom: 1px solid #d1d5da;
+    	}
+    	table .circle::after {
+    		background-color: rgba(27,31,35,0.08);
+    		color: #586069;
+    	}
+    	#table2 tr:first-of-type {
+    		font-weight: 600;
+    		text-align: left;
+    	}
+    	#table2 .icon.right {
+    		float: right;
+    		font-size: 10px;
+    		margin-top: 8px;
+    	}
+    	#table2 tr:nth-of-type(2) td strong {
+    		font-weight: 500;
+    		color: #444d56;
+    	}
+    	#table3 tr:first-of-type {
+    		font-weight: bold;
+    	}
+    	#table3 h1 {
+    		margin-top: 0;
+    		padding-bottom: 0.3em;
+    		font-size: 2em;
+    		border-bottom: 1px solid #eaecef;
+    		margin-bottom: 16px;
+    		font-weight: 600;
+    		line-height: 1.25;
+    	}
+    	#table3 p {
+    		margin-top: 0;
+    		margin-bottom: 16px;
+    		font-size: 15px;
+    	}
+    	#table3 a {
+    		color: #5CAD7D;
+    		text-decoration: none;
+    	}
+    	div.divShadow {
+    		background: #f6f8fa;
+    		border-color: #d1d5da;
+    		box-shadow: inset 0 0 10px rgba(27,31,35,0.1);
+    	}
+    	div.divShadow h3,#table7 h3 {
+    		display: inline-block;
+    		color: #586069;
+    		padding: 0;
+    		margin: 0;
+    		font-size: 14px;
+    		line-height: 1.4;
+    	}
+    	div.divShadow table tr:not(:nth-of-type(1)) {
+			text-align: center;
+			color: #586069;
+    	}
+    	div.divShadow table tr:last-child {
+    		font-weight: 500;
+    		line-height: 1.5;
+    	}
+    	#table4 :first-child :first-child {
+    		position: relative;
+    	}
+    	#table4 span {
+    		position: absolute;
+    		top: 10px;
+    		right: 15px;
+    		color: #586069;
+    		font-size: 12px;
+    	}
+    	#table7 h3 {
+    		color: #2f363d;
+    	}
+    	#table7 strong {
+    		color: #586069;
+    		font-weight: 600;
+    		line-height: 1.2;
+    	}
+    	#table7 small {
+    		font-size: 12px;
+    		color: #586069;
+    		margin-left: 20px;
+    	}
+    	#table7 tr:nth-child(n+2) svg {
+    		visibility: hidden;
+    	}
+    	#table7 tr:nth-child(n+2):hover svg {
+    		visibility: visible;
+    	}
+    	#table7 tr:nth-child(n+2):hover strong {
+    		color: #24292e;
+    	}
+    	/************** footer *************/
+    	footer {
+    		padding: 12px 15px;
+    		border-top: 1px solid #d1d5da;
+    	}
+    	footer #circleLogo {
+    		width: 32px;
+    		height: 32px;
+    		background-color: #a3aab1;
+    		border-radius: 16px;
+    		position: relative;
+    		overflow: hidden;
+    		float: left;
+    	}
+    	#circleLogo .icon {
+    		font-size: 33px;
+    		display: block;
+    		position: absolute;
+    		bottom: -4px;
+    		left: -2px;
+    	}
+    	footer span {
+    		float: right;
+    		line-height: 32px;
+    		color: #959da5;
+    	}
+    	.clearfix::after {
+			content: "";
+			display: block;
+			clear: both;
+    	}
+	</style>
+</head>
+<body>
+	<header>
+			<div id="logo">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-mao"></use>
+				</svg>
+			</div>
+			<div>
+				<svg class="icon">
+					<use xlink:href="#icon-changjinglu"></use>
+				</svg>
+				lessismore1994 <span>/</span> ife_baidu
+			</div>
+			<div id="header-nav">
+				<span>Code</span>
+				<span class="circle">Issues</span>
+				<span class="circle">Pull requests</span>
+				<span>Pulse</span>
+			</div>
+	</header>
+	<content>
+		<div class="link">百度前端技术学院 - <a href="http://ife.baidu.com/">http://ife.baidu.com/</a></div>
+		<div>
+			<table>
+				<tr>
+					<td class="green plant rightBorder">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-plant-27"></use>
+						</svg>
+						Star <span class="circle"></span>
+					</td>
+					<td class="green plant">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-plant-1"></use>
+						</svg>
+						Watch
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<table id="table2">
+				<tr>
+					<td colspan="2">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-zhu"></use>
+						</svg>
+						 master
+						 <svg class="icon right" aria-hidden="true">
+						 	<use xlink:href="#icon-xialasanjiao"></use>
+						 </svg>
+					</td>
+				</tr>
+				<tr class="trBorder">
+					<td colspan="2">Latest commit by <strong>lessismore1994</strong> 23 days ago</td>
+				</tr>
+				<tr>
+					<td class="green plant rightBorder">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-plant-14"></use>
+						</svg>
+						View code
+					</td>
+					<td class="green plant">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-plant-3"></use>
+						</svg>
+						Jump to file
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<table id="table3">
+				<tr>
+					<td>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-daxiang"></use>
+						</svg>
+						README.md
+					</td>
+				</tr>
+				<tr class="trBorder">
+					<td>
+						<h1>ife_baidu 百度前端技术学院</h1>
+						<p>
+						这是百度推出的在线前端学习计划，其中的小项目循序渐进，比较权威也具有挑战性。项目分为CSS模块、JavaScript模块、综合训练三大模块。本人已经完成到了JavaScript模块，托管在github上，后续还会完成它。
+						</p>
+						<p>
+						你可以通过 <a href="https://lessismore1994.github.io/ife_baidu/">https://lessismore1994.github.io/ife_baidu/</a> + 文件夹名称 + HTML文件名 来访问它们。如：<a href="https://lessismore1994.github.io/ife_baidu/task18/task18.htm">https://lessismore1994.github.io/ife_baidu/task18/task18.html</a>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="green plant"><a href="#">View all of README.md</a></td>
+				</tr>
+			</table>
+		</div>
+		<div class="divShadow">
+			<table id="table4">
+				<tr>
+					<td>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-pangxie"></use>
+						</svg>
+						<h3>Pulse</h3>
+						<span>Past week</span>
+					</td>
+				</tr>
+				<tr class="trBorder">
+					<td>There haven't been any recent conversations.</td>
+				</tr>
+				<tr>
+					<td>View Pulse</td>
+				</tr>
+			</table>
+		</div>
+		<div class="divShadow">
+			<table id="table5">
+				<tr>
+					<td>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-zhizhu"></use>
+						</svg>
+						<h3>Issues</h3>
+					</td>
+				</tr>
+				<tr class="trBorder">
+					<td>There are no recent issues.</td>
+				</tr>
+				<tr>
+					<td>View all issues</td>
+				</tr>
+			</table>
+		</div>
+		<div class="divShadow">
+			<table id="table6">
+				<tr>
+					<td>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-wugui"></use>
+						</svg>
+						<h3>Pull requests</h3>
+					</td>
+				</tr>
+				<tr class="trBorder">
+					<td>There are no recent pull requests.</td>
+				</tr>
+				<tr>
+					<td>View all pull requests</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<table id="table7">
+				<tr>
+					<td>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-she"></use>
+						</svg>
+						<h3>Notificaitions</h3>
+					</td>
+				</tr>
+				<tr class="trBorder">
+					<td>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-gou1"></use>
+						</svg>
+						<strong>Not Watching</strong>
+						<br/>
+						<small>Be notified when participating or @mentioned.</small>
+					</td>
+				</tr>
+				<tr class="trBorder">
+					<td>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-gou1"></use>
+						</svg>
+						<strong>Watching</strong>
+						<br />
+						<small>Be notified of all conversations.</small>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-gou1"></use>
+						</svg>
+						<strong>Ignoring</strong>
+						<br />
+						<small>Never be notified.</small>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</content>
+	<footer class="clearfix">
+		<div id="circleLogo">
+			<svg class="icon" aria-hidden="true">
+				<use xlink:href="#icon-tiane"></use>
+			</svg>
+		</div>
+		<span>Desktop version</span>
+	</footer>
+</body>
+</html>

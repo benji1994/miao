@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>密码输入 弹出随机小键盘</title>
+	<style>
+		.main {
+			width: 40%;
+			margin: 50px auto;
+		}
+		input {
+			width: 75%;
+			padding: 10px;
+			padding-right: 30px;
+			box-sizing: border-box;
+			height: 50px;
+		}
+		.buttons {
+			width: 25%;
+			height: 50px;
+			display: inline-block;
+			box-sizing: border-box;
+			text-align: center;
+			line-height: 50px;
+		}
+		button {
+			margin: 0 10px;
+		}
+		table {
+			display: none;
+			margin-top: 5px;
+			width: 75%;
+			border: 1px solid;
+			border-collapse: collapse;
+			text-align: center;
+		}
+		table td {
+			border: 1px solid gray;
+			height: 50px;
+			color: black;
+			width: 33.33%;
+		}
+		table td:hover {
+			background-color: lightgray;
+		}
+	</style>
+</head>
+<body>
+	<div class='main'>
+		<input type="text" readonly="readonly"><div class="buttons"></div>
+		<table>
+			<tr><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td></td></tr>
+			<tr><td></td><td></td><td id='delete'></td></tr>
+		</table>
+	</div>
+	<script>
+		var input = document.querySelector('[type=text]')
+		var deleteTd = document.querySelector('#delete')
+		input.addEventListener('focus',initkeypad)
+		deleteTd.addEventListener('click', function() {
+			input.value = input.value.trim().slice(0, -1)
+		})
+
+		function getRandomKeys() {
+			var keys = [0,1,2,3,4,5,6,7,8,9, '*']
+
+			function randomSort(a, b) {
+				return Math.random() > 0.5 ? -1 : 1
+			}
+
+			return keys.sort(randomSort)
+		}
+		function initkeypad(e) {
+			var table = document.querySelector('table')
+
+			var keys = getRandomKeys()
+			console.log(keys)
+
+			var td = table.querySelectorAll('td')
+			for(var i = 0; i < td.length - 1; i++) {
+				td[i].textContent = keys[i]
+			}
+			td[i].textContent = '删除'
+
+			table.style.display = 'table'
+
+			table.addEventListener('click', onClickTable)
+		}
+		function is4times(str) {
+			var strArr = Array.from(str)
+			strArr = strArr.filter(function(item) {
+				return item != '	'
+			})
+			if(strArr.length % 4 === 0) {
+				return true
+			} else {
+				return false
+			}
+		}
+		function onClickTable(e) {
+			if(e.target === deleteTd) return
+
+			var num = e.target.textContent
+			if(input.value == '') {
+				input.value = num
+			} else {
+				input.value += num
+			}
+
+			if(is4times(input.value)) {
+				input.value += '	'
+			}
+		}
+	</script>
+</body>
+</html>

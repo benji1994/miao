@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body {
+			margin: 0px;
+			padding: 0px;
+		}
+		/*#icon {
+			border: 5px solid pink;
+			margin: auto;
+			width: 1320px;
+		}*/
+		i {
+			background-image: url(heart.png);
+			background-size: 2900px 100px;
+			
+			width: 100px;
+			height: 100px;
+			display: block;
+			border: 5px solid pink;
+			vertical-align: top;
+			
+		}
+		i:hover {
+			background-position: -2800px 0px;
+			transition-property: background-position;
+			transition-duration: 0.5s;
+			transition-timing-function: steps(28);
+		}
+		div,i {
+			margin: 30px auto;
+		}
+		.pin,.wifi,.pin-L {
+			background-image: url(http://files.jb51.net/scimg/web/20101003/b_1279429335264.jpg);
+			width: 45px;
+			height: 45px;
+			border: 1px solid;
+			
+		}
+		.pin {
+			background-position: -65px -5px;
+		}
+		.wifi {
+			background-position: -303px -100px;
+		}
+		div.pin-L {
+			width: 90px;
+			height: 90px;
+			background-position: -130px -10px;
+			background-size: 1200px 1000px;
+		}
+	</style>
+</head>
+<body>
+	<!-- <div id="icon"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div> -->
+	<i></i>
+
+	<div class="pin"></div>
+	<div class="wifi"></div>
+	<div class="pin-L"></div>
+</body>
+</html>

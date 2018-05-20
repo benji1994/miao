@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ios的checkbox样式</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		input {
+			display: none;
+		}
+		.label1 {
+			width: 106px;
+			padding: 2px 0;
+			background-color: #e4e4e4;
+			display: block;
+			margin: auto;
+			border-radius: 33px;
+			transition: all 0.3s linear 0.3s;
+			cursor: pointer;
+		}
+		.label2 {
+			width: 60px;
+			height: 60px;
+			display: block;
+			background-color: #ffffff;
+			border: 1px solid #b7b7b7;
+			border-radius: 30px;
+			box-shadow: 1.5px 3px 3px #b7b7b7;
+			padding: 0;
+			box-sizing: border-box;
+			transition: all 0.5s ease;
+			cursor: pointer;
+			position:relative;
+			left: 0px;
+		}
+		input:checked + label {
+			background-color: #4bd865;
+		}
+		input:checked + label > label {
+			left: 46px;
+			box-shadow: -1.5px 3px 3px #3d8546;
+		}
+	</style>
+</head>
+<body>
+
+	<input type="checkbox" name="" id="ckb">
+	<label for="ckb" class="label1">
+		<label for="ckb" class="label2"></label>
+	</label>
+	
+
+</body>
+</html>

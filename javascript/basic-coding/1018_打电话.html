@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		a {
+			padding: 20px;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<a href="1002_三角形.html">1002_三角形</a>
+	<a href="1004_填充矩形.html">1004_填充矩形</a>
+	<a href="1010_邮寄包裹.html">1010_邮寄包裹</a>
+	<a href="1013_识别三角形.html">1013_识别三角形</a>
+	<a href="1014_写评语.html">1014_写评语</a>
+	<a href="1015_星期几.html">1015_星期几</a>
+	<a href="1016_计算天数.html">1016_计算天数</a>
+	<a href="1018_打电话.html">1018_打电话</a>
+	<a href="1019_分段函数.html">1019_分段函数</a>
+	<a href="1020_数字识别.html">1020_数字识别</a>
+	<hr />
+	<p>点击链接查看，如果看不到结果，请打开控制台。</p>
+	<script type="text/javascript">
+		function call(cost) {
+			
+			//实数不能精确表述
+			if((cost * 100) % (0.2 * 100)) {
+				var cost2 = cost - 0.5;
+				time = Math.round(cost2 / 0.2);
+				
+				console.log(cost + " 元话费由：0.5（首次）+ 0.2 * " + time + " = " + cost + " 元构成。");
+				console.log("时长：3（首次）+ " + time + " =「" + (time + 3) + "」分钟（精确到分钟）。");
+			} else {
+				time = Math.round(cost / 0.2);
+				
+				console.log(cost + " 元话费由：0.2 * " + time + " = " + cost + "构成。");
+				console.log("时长：「" + time + "」（精确到分钟）。");
+			}
+		}
+		(function init() {
+			var cost = Number(prompt("请输入话费。"));
+
+			call(cost);
+		})();
+	</script>
+</body>
+</html>

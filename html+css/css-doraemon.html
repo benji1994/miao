@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		/** {
+			background-color: rgba(0,0,0,0.1);
+		}*/
+		/*section {
+			//width: 500px;
+			background-color: red;
+			margin: auto;
+		}*/
+		div {
+			border: 2px solid black;
+			position: absolute;
+			background-color: #FFFFFF;
+			box-sizing: border-box;
+		}
+		#head {
+			background-color: #07BEEA;
+			width: 316px;
+			height: 306px;
+			margin: auto;
+			border-radius: 153px;
+			position: relative;
+			box-shadow: -3px 3px 3px 2px gray,-1px 1px 1px 1px #FFFFFF inset;
+		}
+		#face {
+			width: 265px;
+			height: 200px;
+			border-radius: 100px;
+			bottom: 20px;
+			left: 22px;
+			z-index: 99;
+		}
+		.eye {
+			width: 76px;
+			height: 87px;
+			border-radius: 38px;
+			z-index: 999;
+			top: 45px;
+		}
+		.eye.left {
+			left: 85px;
+		}
+		.eye.right {
+			right: 75px;
+		}
+		.littleBlackPoint {
+			background-color: black;
+			width: 10px;
+			height: 10px;
+			border-radius: 5px;
+			border: none;
+			top: 50px;
+		}
+		.littleBlackPoint.left {
+			right: 5px;
+		}
+		.littleBlackPoint.right {
+			left: 5px;
+		}
+		.nose {
+			background-color: #CB3B05;
+			width: 35px;
+			height: 35px;
+			border-radius: 17.5px;
+			left: 118px;
+			top: 33px;
+			z-index: 9;
+		}
+		.nose .light {
+			width: 0px;
+			height: 0px;
+			border: none;
+			right: 8px;
+			top: 9px;
+			box-shadow: -1px 1px 5px 5px #ffffff;
+		}
+		.vr {
+			height: 88px;
+			top: 68px;
+			left: 133px;
+			z-index: 9;
+		}
+		.mouse {
+			width: 176px;
+			height: 158px;
+			border-radius:100px;
+			border: none;
+			border-bottom: 3px solid;
+			top: 0px;
+			left: 48px;
+			z-index: 0;
+		}
+		.beard {
+			border: none;
+			top: 40px;
+		}
+		.bea {
+			width: 60px;
+			margin: 18px 0;
+			position: static;
+			border-width: 1px;
+		}
+		.beard.left {
+			position: absolute;
+			left: 32px;
+		}
+		.beard.left > :first-child,.beard.right > :last-child {
+			transform: rotate(20deg);
+		}
+		.beard.left > :last-child,.beard.right > :first-child {
+			transform: rotate(-20deg);
+		}
+		.beard.right {
+			position: absolute;
+			right: 20px;
+		}
+		.rope {
+			width: 234px;
+			height: 24px;
+			background-color: #cb4100;
+			top: 262px;
+			left: 38px;
+			z-index: 999;
+			border-radius: 12px;
+			box-shadow: -1px 1px 1px #FFFFFF inset,-3px 1px 3px 2px gray;
+		}
+		.clothes {
+			height: 164px;
+			width: 174px;
+			top: 243px;
+			left: 70px;
+			border-radius: 82px;
+			z-index: 9;
+		}
+		.pocket {
+			width: 134px;
+			height: 70px;
+			top: 84px;
+			left: 18px;
+			border-radius: 0px 0px 70px 70px;
+		}
+		.bell {
+			width: 44px;
+			height: 44px;
+			background-color: #f9f12a;
+			top: 8px;
+			left: 92px;
+			z-index: 9999;
+			border-radius: 22px;
+			box-shadow: -1px 1px 2px 2px gray;
+		}
+		.bell:before {
+			content: "";
+			width: 0px;
+			height: 0px;
+			box-shadow: -1px -1px 3px 3px #FFFFFF;
+			position: absolute;
+			right: 12px;
+			top: 10px;
+			z-index: 99999;
+		}
+		.bell > :first-child {
+			height: 6px;
+			width: 40px;
+			top: 10px;
+			border-radius: 4px;
+			border-color: #333331;
+			background-color: #f9f12a;
+		}
+		.bell > :nth-child(2) {
+			width: 12px;
+			height: 10px;
+			border: none;
+			background-color: #000000;
+			top: 20px;
+			left: 13px;
+			border-radius: 5px;
+		}
+		.bell > :last-child {
+			height: 10px;
+			top: 30px;
+			left: 17px;
+		}
+		.arm {
+			width: 82px;
+			height: 52px;
+			background-color: #07beea;
+			top: 302px;
+			z-index: -9;
+		}
+		.arm.left {
+			right: 240px;
+			transform: rotate(-35deg);
+			border-right: none;
+			box-shadow: -4px -3px 3px 2px gray;
+		}
+		.arm.right {
+			left: 246px;
+			transform: rotate(35deg);
+			border-left: none;
+		}
+		.hand {
+			width: 64px;
+			height: 64px;
+			top: -10px;
+			border-radius: 32px;
+		}
+		.hand.right  {
+			left: 39px;
+		}
+		.hand.left {
+			right: 43px;
+			box-shadow: -3px -3px 3px 2px gray;
+		}
+		.body {
+			height: 140px;
+			width: 224px;
+			top: 284px;
+			left: 44px;
+			z-index: -99;
+			background-color: #07beea;
+			box-shadow: -3px 3px 3px 2px gray;
+		}
+		.foot {
+			height: 34px;
+			width: 138px;
+			top: 100%;
+		}
+		.foot.left {
+			left: -30px;
+			border-radius: 20px 15px 15px 10px;
+			box-shadow: -3px 3px 3px 2px gray;
+
+		}
+		.foot.right {
+			right: -30px;
+			border-radius: 15px 20px 10px 15px;
+		}
+		.body > :first-child {
+			width: 24px;
+			height: 12px;
+			z-index: 5;
+			bottom: -2px;
+			left: 98px;
+			border-bottom: none;
+			border-radius: 12px 12px 0 0;
+			background-color: gray;
+		}
+	</style>
+</head>
+<body>
+	<!-- <section>
+		<div> -->
+			<div id="head">
+			<div class="eye left">
+				<div class="littleBlackPoint left"></div>
+			</div>
+			<div class="eye right">
+				<div class="littleBlackPoint right"></div>
+			</div>
+			<div class="rope">
+				<div class="bell">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div id="face">
+				<div class="nose">
+					<div class="light"></div>
+				</div>
+				<div class="vr"></div>
+				<div class="mouse"></div>
+				<div class="beard left">
+					<div class="bea"></div>
+					<div class="bea"></div>
+					<div class="bea"></div>
+				</div>
+				<div class="beard right">
+					<div class="bea"></div>
+					<div class="bea"></div>
+					<div class="bea"></div>
+				</div>
+			</div>
+			<div class="clothes">
+				<!-- <div class="bell">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div> -->
+				<div class="pocket"></div>
+			</div>
+			<div class="arm left">
+				<div class="hand left"></div>
+			</div>
+			<div class="arm right">
+				<div class="hand right"></div>
+			</div>
+			<div class="body">
+				<div></div>
+				<div class="foot left"></div>
+				<div class="foot right"></div>
+			</div>
+		<!-- </div>
+	</section>
+ --></body>
+</html>

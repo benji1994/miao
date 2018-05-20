@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="http://github.hubspot.com/select/dist/css/select-theme-default.css">
+	<script src='http://github.hubspot.com/select/bower_components/tether/dist/js/tether.js'></script>
+	<script src='http://github.hubspot.com/select/dist/js/select.js'></script>
+</head>
+<body>
+	<select name="" id="">
+		<option value="">001</option>
+		<option value="">002</option>
+		<option value="">003</option>
+	</select>
+</body>
+</html>
+<script>
+	class Select {
+	    constructor(obj) {
+	        
+	        this.el = obj.el
+	        
+	        this.sel = document.createElement('div')
+	        
+	        this.sel.style.width = this.el.offsetWidth + 'px'
+	        this.sel.style.height = this.el.offsetHeight + 'px'
+	       
+	        this.sel.style.lineHeight = this.el.offsetHeight + 'px'
+	        this.el.parentNode.appendChild(this.sel)
+	        this.el.parentNode.insertBefore(this.sel, this.el)
+	        this.sel.className = 'select-select'
+	        var ops = Array.from(this.el.options)
+	        
+	        this.ul = document.createElement('ul')
+	        this.ul.className = 'select-ul'
+	        this.ul.style.maxHeight = this.el.offsetHeight * 6 + 'px'
+	        this.ul.addEventListener('click', function(e) {
+	            main.style.display = 'block'
+	            span.textContent = e.target.textContent
+	            this.index = e.target
+	            e.target.selected = true
+	            e.stopPropagation()
+	        })
+	        var main = this.ul
+	        this.sel.addEventListener('click', function() {
+	            
+	            
+	            main.style.display = 'block'    
+	        })
+	        for(let i = 0; i < ops.length; i++) {
+	            this.li = document.createElement('li')
+	            this.li.className = 'select-li'
+	            this.li.style.width = this.el.offsetWidth + 20 + 'px'
+	            this.li.style.height = this.el.offsetHeight + 'px'
+	            this.li.textContent = ops[i].innerText
+	            this.ul.appendChild(this.li)
+	        }        
+	        
+
+	        var span = document.createElement('span')
+	        this.index
+	        if(ops[0].selected) {
+	            span.textContent = ops[0].innerText
+	            this.index = ops[0]
+	        } else {
+	            ops.map(it => {
+	                if(it.selected) {
+	                    span.textContent = it.innerText
+	                    this.index = it
+	                }
+	            })
+	        }
+	        this.sel.appendChild(span)
+	        this.el.style.display = 'none'
+	        this.sel.appendChild(this.ul)
+	    }
+
+	    close() {
+	        this.ul.style.display = 'none'
+	    }
+
+	    open() {
+	        this.ul.style.display = 'block'
+	    }
+
+	    isopen() {
+	        if(this.ul.display === 'block') {
+	            return true
+	        } else if(this.ul.display === 'none') {
+	            return null
+	        }
+	    }
+
+	    change(val) {
+	        this.span.textContent = val
+	        this.index.innerText = val
+	    }
+
+	    value() {
+	        return this.sel.textContent
+	    }
+	}
+
+</script>

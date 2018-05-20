@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>垂直水平居中</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body * {
+			background-color: rgba(0,0,0,0.1);
+		}
+		h6 {
+			margin: 0 0 10px 0;
+		}
+		p　{
+			margin: 0;
+		}
+		section {
+			width: 300px;
+			height: 300px;
+			border: 1px solid red;
+			float: left;
+			margin: 10px;
+		}
+		div {
+			width: 200px;
+			height: 150px;
+		}
+		#plan1 {
+			position: relative;
+		}
+		#plan1 div {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -100px;
+			margin-top: -75px;
+		}
+		#plan2 {
+			display: table-cell;
+			text-align: center;
+			line-height: 300px;
+		}
+		#plan2 div {
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 1.3em;
+			text-align: left;
+		}
+		#plan3 {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		#plan4 {
+			position: relative;
+		}
+		#plan4 div {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+	</style>
+</head>
+<body>
+	<section id="plan1">
+		<div>
+			<h6>方案一：绝对定位+负外边距</h6>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aut ipsa, natus tenetur suscipit quod.</p>
+		</div>
+	</section>
+	<section id="plan2">
+		<div>
+			<h6>方案二：display:table-cell</h6>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aut ipsa, natus tenetur suscipit quod.</p>
+		</div>
+	</section>
+	<section id="plan3">
+		<div>
+			<h6>方案三：flex布局</h6>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aut ipsa, natus tenetur suscipit quod.</p>
+		</div>
+	</section>
+	<section id="plan4">
+		<div>
+			<h6>方案四：绝对定位</h6>
+			<p>top=0 bottom=0 left=0 right=0 margin=auto.</p>
+		</div>
+	</section>
+</body>
+</html>

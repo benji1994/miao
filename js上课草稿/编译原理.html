@@ -1,0 +1,176 @@
+<script>
+	var json = '{"a":1,"b":true,"c":false,"foo":null,"bar":[1,2,3]}'
+	function parse(json) {
+		var i = 0
+		var str = json
+		return parseValue()
+
+		function parseValue() {
+			if(str[i] === '{') {
+				return parseObject()
+			} else if(str[i] === '[') {
+				return parseArray()
+			} else if(str[i] === 'n') {
+				return parseNull()
+			} else if(str[i] === 't') {
+				return parseTrue()
+			} else if(str[i] === 'f') {
+				return parseFalse()
+			} else if(str[i] === '"') {
+				return parseString()
+			} else {
+				return parseNumber()
+			}
+		}
+
+		function parseString() {
+			var result = ''
+			i++
+			while(str[i] != '"' ) {
+				result += str[i++]
+			}
+			i++
+			return result
+		}
+
+		function parseNull() {
+			var content = str.substr(i, 4)
+
+			if(content === 'null') {
+				i += 4
+				return null
+			} else {
+				throw new Error('Unexpected char at pos: ' + i)
+			}
+		}
+
+		function parseFalse() {
+			var content = str.substr(i, 5)
+
+			if(content === 'false') {
+				i += 5
+				return false
+			} else {
+				throw new Error('Unexpected char at pos: ' + i)
+			}
+		}
+
+		function parseTrue() {
+			var content = str.substr(i, 4)
+
+			if(content === 'true') {
+				i += 4
+				return true
+			} else {
+				throw new Error('Unexpected char at pos: ' + i)
+			}
+		}
+
+		function parseNumber() {
+			var numStr = ''
+
+			while(isNumberChar(str[i])) {
+				numStr += str[i++]
+			}
+
+			return parseFloat(numStr)
+		}
+
+		function isNumberChar(c) {
+			var chars = {
+				'-': true,
+				'+': true,
+				'e': true,
+				'E': true,
+				'.': true
+			}
+			if(chars[c]) {
+				return true
+			}
+			if(c >= '0' && c <= '9') {
+				return true
+			}
+			return false
+		}
+
+		function parseArray() {
+			i++
+			var result = []
+			while(str[i] !== ']') {
+				result.push(parseValue())
+				if(str[i] === ',') {
+					i++
+				}
+			}
+			i++
+			return result
+		}
+
+		function parseObject() {
+			i++
+			var result = {}
+			while(str[i] !== '}') {
+				var key = parseString()
+				i++
+				var value = parseValue()
+				result[key] = value
+				if(str[i] === ',') {
+					i++
+				}
+			}
+			i++
+			return result
+		}
+	}
+
+	function stringify(value) {
+		if(typeof value === 'null') {
+			return '' + null
+		}
+
+		if(typeof value === 'boolean') {
+			if(value) {
+				return 'true'
+			} else {
+				return 'false'
+			}
+		}
+
+		if(typeof value === 'string') {
+			return '"' + value + '"'
+		}
+
+		if(typeof value === 'number') {
+			return '' + value
+		}
+
+		if(Array.isArray(value)) {
+			var result = '['
+
+			for(let i = 0; i < value.length; i++) {
+				result += stringify(value[i])
+
+				if(i !== value.length - 1) {
+					result += ','
+				}
+			}
+
+			result += ']'
+
+			return result
+		}
+
+		var result = '{'
+		for(prop in value) {
+			result += '"' + prop + '":' + stringify(value[prop]) + ','
+		}
+
+		result = result.slice(0, result.length - 1)
+		result += '}'
+
+		return result
+	}
+
+	object = parse(json)
+	console.log(stringify(object))
+</script>

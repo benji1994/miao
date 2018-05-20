@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QQ邮箱布局</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		section {
+			border: 1px solid;
+			height: 90vh;
+			box-sizing: border-box;
+		}
+		.left {
+			width: 185px;
+			float: left;
+		}
+		.right {
+			float: right;
+			width: 300px;
+		}
+		.main {
+			margin-left: 200px;
+			margin-right: 315px;
+			min-width: 440px;
+		}
+		@media screen and (max-width: 950px) {
+			.right {
+				display: none;
+			}
+			.main {
+				margin-right: 0px;
+				background-color: yellow;
+			}
+		}
+	</style>
+</head>
+<body>
+	<section class="left"></section>
+	<section class="right"></section>
+	<section class="main"></section>
+	
+</body>
+</html>

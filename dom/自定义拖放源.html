@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+	#clock {
+		font: bold 24pt sans;
+		background-color: #ddf;
+		padding: 10px;
+		border: solid black 2px;
+		border-radius: 10px;
+	}
+</style>
+<body>
+	<h1>从时钟中拖出时间戳</h1>
+	<span id='clock'></span> 
+	<textarea cols="60" rows="20"></textarea>
+	<script>
+		var clock = document.getElementById('clock')
+		var icon = new Image()
+		icon.style.width = '50px'
+		icon.style.height = '50px'
+		icon.src = 'clock-icon.jpg'
+
+		function displayTime() {
+			var now = new Date()
+			var hrs = now.getHours(), mins = now.getMinutes()
+			if(mins < 10) mins = '0' + mins
+			setTimeout(displayTime, 6000)
+		}
+		displayTime()
+
+		clock.draggable = true
+
+		clock.ondragstart = function(event) {
+			var dt = event.dataTransfer
+
+			dt.setData('text', Date() + '\n')
+
+			if(dt.setDragImage) dt.setDragImage(icon, 0, 0)
+		}
+	</script>
+</body>
+</html>

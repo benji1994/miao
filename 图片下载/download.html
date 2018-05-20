@@ -1,0 +1,63 @@
+<script src="imgs.js"></script>
+<script>
+  imgs.splice(50)
+  console.log(imgs)
+
+  // 下载给定url的图片，下载完成后调用callback
+  function downloadImg(url, callback) {
+    var img = new Image()//document.create('img')
+    img.onload = function(){
+      callback(img)
+    }
+    img.onerror = function(){
+      callback(img)
+    }
+    img.src = url
+  }
+
+  // function downloadImgSync(url) {
+  //   var xhr = new XMLHttpRequest()
+  //   xhr.open('GET', url, false)
+  //   xhr.send()
+  // }
+
+  // for(var img of imgs) {
+  //   downloadImgSync(img)
+  // }
+
+
+  //一张一张下
+  oneByOne(imgs, console.log)
+  function oneByOne(imgs, callback) {
+    if(imgs.length === 0) {
+      done = true
+      callback()
+      return
+    }
+    downloadImg(imgs[0], function () {
+      oneByOne(imgs.slice(1), callback)
+    })
+  }
+
+
+  //两张一组，两张都下完以后再开始下一组
+  function twoByTwo(imgs, done) {
+    
+  }
+
+  //两张一组，两张任何一张都下完以后就开始下一组
+  function twoByTwo2(imgs, done) {
+    
+  }
+
+
+  //最多只能同时有两张正在下载
+  function twoMax(imgs, done) {
+    
+  }
+
+  //最多同时下载n张
+  function nMax(n, imgs, done) {
+    
+  }
+</script>

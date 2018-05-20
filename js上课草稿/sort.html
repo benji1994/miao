@@ -1,0 +1,24 @@
+<script>
+	function swap(ary, x, y) {
+		if(ary[x] === ary[y]) return
+
+		var temp = ary[x]
+		ary[x] = ary[y]
+		ary[y] =temp
+	}
+	function selectSort(ary) {
+		var stop = ary.length
+		for(var i = 0; i < stop - 1; i++) {
+			var minIndex = i
+			for(var j = i; j < stop; j++) {
+				if(ary[minIndex] > ary[j]) {
+					minIndex = j
+				}
+			}
+			swap(ary, i, minIndex)
+		}
+	}
+	var ary = [1,24,6,7,9,5]
+	selectSort(ary)
+	console.log(ary)
+</script>

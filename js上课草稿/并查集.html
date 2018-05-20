@@ -1,0 +1,62 @@
+<script>
+	class UnionFindSet {
+		constructor(size) {
+			this.set = new Array(size).fill(-1)
+		}
+
+		//不带路径压缩的find
+		findWithoutRouteCompress(x) {
+			if(this.set[x] < 0) {
+				return x
+			} else {
+				return findWithoutRouteCompress(this.set[x])
+			}
+		}
+
+		//找到x所属树的根节点
+		//并且把x直接指向其根节点
+		findWithRouteCompress(x) {
+			if(this.set[x] < 0) {
+				return x
+			} else {
+				return this.set[x] = findWithRouteCompress(this.set[x])
+			}
+		}
+
+		unionByDepth(x, y) {
+			var rootx = this.findWithoutRouteCompress(x)
+			var rooty = this.findWithoutRouteCompress(y)
+			var depthx = -this.set[rootx]
+			var depthy = -this.set[rooty]
+			if(rootx !== rooty) {
+				if(depthx < depthy) {
+					this.set[rootx] = rooty
+				} else if(depthx > depthy) {
+					this.set[rooty] = rooty
+				} else {
+					this.set[rootx] = rooty
+					this.set[rooty]--
+				}
+			}
+		}
+
+		unionBySize(x, y) {
+			var rootx = this.findWithRouteCompress(x)
+			var rooty = this.findWithRouteCompress(y)
+			var sizex = -this.set[rootx]
+			var sixey = -this.set[rooty]
+
+			if(sizex < sizey) {
+				this.set[rootx] = rooty
+				this.set[rooty] = -sizex - sizey
+			} else {
+				this.set[rooty] = rootx
+				this.set[rootx] = -sizey - sizex
+			}
+		}
+
+		same(x, y) {
+			return this.find(x) === this.find(y)
+		}
+	}
+</script>

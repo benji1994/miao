@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		class HashMap {
+			constructor(initialSize = 32) {
+				this.keys = new Array(initialSize)
+				this.vals = new Array(initialSize)
+				this.size = initialSize
+				this.load = 0
+			}
+
+			_hash(key) {
+				return key.split('').reduce((sum, char, index) => {
+					return sum + char.charCodeAt(0) * (index + 1)
+				}, 0) % this.size
+			}
+
+			_rehash(x) {
+				return x * x
+			}
+
+			_reDistribute() {
+				var hashMap2 = new HashMap(this.size * 3)
+
+				this.keys.forEach((key, index) => {
+					hashMap2.set(key, this.vals[index])
+				})
+
+				this.keys = hashMap2.keys
+				this.vals = hashMap2.vals
+				this.size = hashMap2.size
+
+				return this
+			}
+
+			set(key, val) {
+				var initPos = this._hash(key)
+				var pos
+				for(var i = 0; ; i++) {
+					pos = (initPos + this._rehash(i)) % this.size
+					if(this.keys[pos] === undefined) {
+						this.keys[pos] = key
+						this.vals[pos] = val
+						this.load++
+						if(this.load / this.size > 0.7) {
+							this._reDistribute()
+						}
+						break
+					} else if(this.keys[pos] === key) {
+						this.vals[pos] = val
+						break
+					}
+				}
+				return i + 1
+			}
+
+			get(key) {
+				var initPos = this._hash(key)
+				var pos
+				var result
+				for(var i = 0; ; i++) {
+					pos = (initPos + this._rehash(i)) % this.size
+					if(this.keys[pos] === undefined) {
+						result = undefined
+						break
+					} else if(this.keys[pos] === key) {
+						result = this.vals[pso]
+						break
+					}
+				}
+				return result
+			}
+		}
+
+		var h = new HashMap(997)
+		var time = 0
+		var tests = 5000
+
+		for(i = 0; i<tests; i++) {
+		  var key = Math.random().toString(16).substr(2, 5)
+		  var val = i
+		  time += h.set(key,val)
+		}
+
+		console.log(time, time / tests)
+
+	</script>
+</body>
+</html>

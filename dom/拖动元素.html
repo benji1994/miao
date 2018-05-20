@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<style>
+			#div1 {
+				width: 100px;
+				height: 100px;
+				background-color: maroon;
+				position: absolute;
+			}
+			#div2 {
+				width: 80px;
+				height: 80px;
+				background-color: orange;
+				position: absolute;
+			}
+			#div3 {
+				width: 80px;
+				height: 80px;
+				background-color: green;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id = 'div1' data-movable = 'true' style = 'top: 100px; left: 50px;'></div>
+		<div id = 'div2' data-movable = 'true' style = 'top: 100px; left: 50px;'></div>
+		<div id = 'div3' data-movable = 'true' style = 'top: 100px; left: 50px;'></div>
+		<script>
+			var movingEl = false
+			var maxZ = 100
+			var mouseStartX
+			var mouseStartY
+			var elStartX
+			var elStartY
+			addEventListener('mousedown', function(event) {
+				if(!event.target.matches('[data-movable = "true"]'))
+					return
+
+				movingEl = event.target
+				movingEl.style.zIndex = maxZ++
+				mouseStartX = event.clientX
+				mouseStartY = event.clientY
+				elStartX = parseInt(movingEl.style.left)
+				elStartY = parseInt(movingEl.style.top)
+
+				function move(event) {
+					if(movingEl) {
+						var diffX = event.clientX - mouseStartX
+						var diffY = event.clientY - mouseStartY
+						var targetX = elStartX + diffX
+						var targetY = elStartY + diffY
+						if(targetX < 50)
+							targetX = 0
+						if(targetX > innerWidth - movingEl.offsetWidth - 50)
+							targetX = innerWidth - movingEl.offsetWidth
+						if(targetY < 50)
+							targetY = 0
+						if(targetY > innerHeight - movingEl.offsetHeight - 50)
+							targetY = innerHeight - movingEl.offsetHeight
+						movingEl.style.left = targetX + 'px'
+						movingEl.style.top = targetY + 'px'
+					}
+				}
+
+				addEventListener('mousemove', move)
+
+				addEventListener('mouseup', function up(event) {
+					movingEl = null
+					removeEventListener('mousemove', move)
+					removeEventListener('mouseup', up)
+				})
+			})
+		</script>
+	</body>
+</html>

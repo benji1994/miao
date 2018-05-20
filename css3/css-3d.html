@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		div {
+			margin: 150px auto;
+		}
+		* {
+			box-sizing: border-box;
+		}
+		[class^="cube"]:hover {
+			animation-play-state: paused;
+		}
+		.cube {
+			position: relative;
+			width: 150px;
+			height: 150px;
+			transform-style: preserve-3d;
+			animation: rotate 15s infinite linear;
+			//transform-origin: 50% 50% -74.5px;
+			transform-origin: center 200px;
+
+		}
+		@keyframes rotate {
+			0% {
+				//transform: rotateX(0deg) rotateY(0deg);
+				transform: rotateZ(0deg);
+			}
+			100% {
+				//transform: rotateX(360deg) rotateY(360deg);
+				transform: rotateZ(360deg);
+			}
+		}
+		.cube span{
+			display: block;
+			position: absolute;
+			width: 150px;
+			height: 150px;
+			background-color: rgba(0,0,0,0.1);
+			border: 1px solid white;
+			line-height: 150px;
+			text-align: center;
+			color: rgba(255,255,255,0.7);
+			font-size: 48px;
+		}
+		.cube span:nth-of-type(2) {
+			bottom: 100%;
+			left: 0;
+			transform: rotateX(90deg);
+			transform-origin: 50% 100%;
+
+		}
+		.cube span:nth-of-type(3) {
+			top: 100%;
+			left: 0;
+			transform: rotateX(-90deg);
+			transform-origin: 50% 0%;
+		}
+		.cube span:nth-of-type(4) {
+			top: 0;
+			right: 100%;
+			transform-origin: 100% 50%;
+			transform: rotateY(-90deg);
+		}
+		.cube span:nth-of-type(5) {
+			top: 0;
+			left: 100%;
+			transform-origin: 0% 50%;
+			transform: rotateY(90deg);
+		}
+		.cube span:nth-of-type(6) {
+			transform: translateZ(-150px);
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="cube">
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<span>4</span>
+		<span>5</span>
+		<span>6</span>
+	</div>
+</body>
+</html>

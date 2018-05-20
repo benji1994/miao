@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Conway的生命游戏</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			text-align: center;
+		}
+		div {
+			line-height: 13px;
+		}
+		input {
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<button id='nextStatus'>Next</button>
+	<button id='auto'>Auto</button>
+	<button id='stop'>Stop</button>
+	<div id='world'></div>
+	<script>
+		class Conway {
+			constructor(rows, cols, ratio = 0.2) {
+				this.rows = rows
+				this.cols = cols
+				this.grid = new Array(rows).fill(0).map(function() {
+					return new Array(cols).fill(0).map(function() {
+						return Math.random() < ratio ? 1 : 0
+					})
+				})
+			}
+
+			_countNabours(row, col) {
+				var nabours = 0
+				var r, c
+				for(var i = row - 1; i <= row + 1; i++) {
+					for(var j = col - 1; j <= col + 1; j++) {
+						r = i
+						c = j
+						// if(r === -1)
+						// 	r = this.rows - 1
+						// if(r === this.rows)
+						// 	r = 0
+						// if(c === -1)
+						// 	c = this.cols - 1
+						// if(c === this.cols)
+						// 	c = 0
+
+						if(r !== row || c !== col) {
+							try {
+								nabours += this.grid[r][c] || 0
+							} catch(e) {}
+						}
+					}
+				}
+				return nabours
+			}
+
+			_getNextStatus(cell, nabours) {
+				if(cell) {
+					if(nabours < 2 || nabours > 3) {
+						return 0
+					} else {
+						return 1
+					}
+				} else {
+					if(nabours === 3) {
+						return 1
+					} else {
+						return 0
+					}
+				}
+			}
+
+			next() {
+				this.grid = this.grid.map((row, rowIndex) => {
+					return row.map((cell, colIndex) => {
+						var nabours = this._countNabours(rowIndex, colIndex)
+						return this._getNextStatus(cell, nabours)
+					})
+				})
+			}
+
+			renderAsCheckradio() {
+				var wrapper = document.createElement('div')
+
+				wrapper.addEventListener('click', event => {
+					var target = event.target
+					if(target.tagName === 'INPUT') {
+						var row = target.dataset.row
+						var col = target.dataset.col
+						this.grid[row][col] = target.checked ? 1 : 0
+					}
+				})
+
+				var checkradios = this.grid.map(function(row, rowIndex) {
+					return row.map(function(cell, colIndex) {
+						if(cell) {
+							return `<input data-row='${rowIndex}' data-col='${colIndex}' type='radio' checked>`
+						} else {
+							return `<input data-row='${rowIndex}' data-col='${colIndex}' type='radio'>`
+						}
+					}).join('')
+				}).join('<br/>')
+
+				wrapper.innerHTML = checkradios
+				return wrapper
+			}
+		}
+
+		var c = new Conway(47, 103, 0.5)
+		world.append(c.renderAsCheckradio())
+
+		function renderNext() {
+			c.next()
+			world.innerHTML = ''
+			world.append(c.renderAsCheckradio())
+		}
+
+		nextStatus.addEventListener('click', renderNext)
+
+		var interval
+		auto.addEventListener('click', function() {
+			interval = setInterval(renderNext, 0)
+		})
+		var stop = document.querySelector('#stop')
+		stop.addEventListener('click', function() {
+			clearInterval(interval)
+		})
+	</script>
+</body>
+</html>

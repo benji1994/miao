@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		a {
+			padding: 20px;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<a href="1002_三角形.html">1002_三角形</a>
+	<a href="1004_填充矩形.html">1004_填充矩形</a>
+	<a href="1010_邮寄包裹.html">1010_邮寄包裹</a>
+	<a href="1013_识别三角形.html">1013_识别三角形</a>
+	<a href="1014_写评语.html">1014_写评语</a>
+	<a href="1015_星期几.html">1015_星期几</a>
+	<a href="1016_计算天数.html">1016_计算天数</a>
+	<a href="1018_打电话.html">1018_打电话</a>
+	<a href="1019_分段函数.html">1019_分段函数</a>
+	<a href="1020_数字识别.html">1020_数字识别</a>
+	<hr />
+	<p>点击链接查看，如果看不到结果，请打开控制台。</p>
+	<script type="text/javascript">
+		function triangle(a, b, c) {
+			if(!(a + b > c && Math.abs(a - b) < c)) {
+				console.log("输入有误，不能构成三角形！");
+				return;
+			}
+			if(!(a + c > b && Math.abs(a - c) < b)) {
+				console.log("输入有误，不能构成三角形！");
+				return;
+			}
+			if(!(c + b > a && Math.abs(c - b) < a)) {
+				console.log("输入有误，不能构成三角形！");
+				return;
+			}
+			// 海伦——秦九韶公式
+			// 周长的一半: s=1/2(a+b+c) 
+			// 三角形面积: S=Math.sqrt(s(s-a)(s-b)(s-c))
+			var s = (a + b + c) / 2;
+			var S = Math.sqrt(s * (s-a) * (s-b) * (s-c));
+			console.log(S);
+
+		}
+		(function init() {
+			triangle(2, 3, 0);
+		})();
+	</script>
+</body>
+</html>

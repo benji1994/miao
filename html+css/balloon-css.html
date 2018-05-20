@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>balloon tooltip</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+		}
+		html,body {
+			font-size: 10px;
+			margin: 0.75rem;
+		}
+		button {
+			background-color: #ff3d2e;
+			color: #fff;
+			display: inline-block;
+			min-width: 160px;
+			padding: 1.2rem 2.8rem;
+			font-size: 1.6rem;
+			border-radius: 5px;
+			border: none;
+			position: relative;
+			margin: 1.5rem;
+			margin-bottom: 0;
+		}
+		button::before, button::after {
+			opacity: 0;
+			background-color: rgba(17, 17, 17, 0.9);
+			position: absolute;
+			z-index: 10;
+			transition: all 0.18s ease-out;
+			box-sizing: border-box;
+			pointer-events: none;
+		}
+		button::before {
+			content: attr(data-balloon);
+			border-radius: 4px;
+			font-size: 12px;
+			padding: 0.5em 1em;
+			white-space: nowrap;
+		}
+		button:hover {
+			background-color: #E01909;
+		}
+		button:hover::before,button:hover::after {
+			opacity: 1;
+			pointer-events: auto;
+		}
+		[data-balloon-pos="up"]::before {
+			margin-bottom: 11px;
+			bottom: 50%;
+			left: 50%;
+			transform: translate(-50%,0);
+		}
+		[data-balloon-pos="up"]::after {
+			bottom: 100%;
+			left: 50%;
+			bottom: 50%;
+			margin-bottom: 5px;
+			transform: translate(-50%,0);
+			content: "";
+			width: 18px;
+			height: 6px;
+			clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+		}
+		[data-balloon-pos="up"]:hover::before,[data-balloon-pos="up"]:hover::after {
+			bottom: 100%;
+		}
+		[data-balloon-pos="left"]::before {
+			margin-right: 11px;
+			right: 50%;
+			top: 50%;
+			transform: translate(0,-50%);
+		}
+		[data-balloon-pos="left"]::after {
+			content: "";
+			width: 6px;
+			height: 18px;
+			margin-right: 5px;
+			top: 50%;
+			right: 50%;
+			transform: translate(0,-50%);
+			clip-path: polygon(0% 0%,100% 50%,0% 100%);
+		}
+		[data-balloon-pos="left"]:hover::before,[data-balloon-pos="left"]:hover::after {
+			right: 100%;
+		}
+		[data-balloon-pos="right"]::before {
+			margin-left: 11px;
+			top: 50%;
+			transform: translate(0,-50%);
+			left: 50%;
+		}
+		[data-balloon-pos="right"]::after {
+			content: "";
+			width: 6px;
+			height: 18px;
+			margin-left: 5px;
+			left: 50%;
+			top: 50%;
+			transform: translate(0,-50%);
+			clip-path: polygon(0% 50%,100% 0%,100% 100%);
+		}
+		[data-balloon-pos="right"]:hover::before,[data-balloon-pos="right"]:hover::after {
+			left: 100%;
+		}
+		[data-balloon-pos="down"]::before {
+			top: 50%;
+			left: 50%
+			transform: translate(-50%,0);
+			margin-top: 11px;
+		}
+		[data-balloon-pos="down"]::after {
+			content: "";
+			width: 18px;
+			height: 6px;
+			clip-path: polygon(50% 0%,100% 100%,0 100%);
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,0);
+			margin-top: 5px;
+		}
+		[data-balloon-pos="down"]:hover::before,
+		[data-balloon-pos="down"]:hover::after {
+			top: 100%;
+		}
+		[data-balloon-length="fit"]::before {
+			width: 100%;
+			white-space: normal;
+		}
+		[data-balloon-length="xlarge"]::before {
+			width: 200%;
+			white-space: normal;
+		}
+	</style>
+</head>
+<body>
+	<button data-balloon="Whats up!" data-balloon-pos="up">Hover me!</button>
+	<button data-balloon="Whats up!" data-balloon-pos="left">Hover me!</button>
+	<button data-balloon="Whats up!" data-balloon-pos="right">Hover me!</button>
+	<button data-balloon="Whats up!" data-balloon-pos="down">Hover me!</button>
+	<button data-balloon-length="xlarge" data-balloon="What about something really big? This may surpass your window dimensions. Imagine you're on that boring class with that boring teacher and you didn't slept so well last night. Suddenly you're sleeping in class. Can you believe it?!" data-balloon-pos="up">I'm a Xlarge tooltip</button>
+	<button data-balloon-length="fit" data-balloon="What about something really big? This may surpass your window dimensions. Imagine you're on that boring class with that boring teacher and you didn't slept so well last night. Suddenly you're sleeping in class. Can you believe it?!" data-balloon-pos="up">My width fill fit to element</button>
+	<button data-balloon="Emojis: 😀 😬 😁 😂 😃 😄 😅 😆" data-balloon-pos="up">Hover me!</button>
+</body>
+</html>

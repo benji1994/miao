@@ -1,0 +1,38 @@
+<script>
+	function Queue(queue) {
+		this.queue = queue
+	}
+	Queue.prototype = {
+		next: function() {
+			try {
+				var next = this.queue[0]
+				for(let i = 1; i < this.queue.length; i++) {
+					this.queue[i - 1] = this.queue[i]
+				}
+				this.queue.length -= 1 
+			} catch(e) {
+				console.log('出错了')
+			}
+			return next
+		},
+		push: function(x) {
+			this.queue[this.queue.length] = x
+		},
+		get length() {
+			return this.queue.length
+		}
+	}
+	var myQueue = new Queue([1,2,3])
+	console.log(myQueue.length)
+	var next = myQueue.next()
+	console.log(next)
+	console.log(myQueue.length)
+	console.log(myQueue)
+	myQueue.next()
+	myQueue.next()
+	myQueue.next()
+	console.log(myQueue.length)
+	myQueue.push(2543        )
+	console.log(myQueue)
+
+</script>

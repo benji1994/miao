@@ -1,0 +1,779 @@
+<!-- 15: 银行利息 -->
+<script type="text/javascript">
+	console.log("<!-- 15: 银行利息 -->");
+
+	var year = 4;
+	var rate = 5;
+	var money = 5000;
+
+	for(var i = 0;i < year;i++) {
+		money *= (rate / 100 + 1);
+	}
+
+	console.log(Math.floor(money));
+</script>
+
+<!-- 02: 财务管理 -->
+<script>
+	console.log("<!-- 02: 财务管理 -->");
+
+	var m1 = 100.00;
+	var m2 = 489.12;
+	var m3 = 12454.12;
+	var m4 = 1234.10;
+	var m5 = 823.05;
+	var m6 = 109.20;
+	var m7 = 5.27;
+	var m8 = 1542.25;
+	var m9 = 839.18;
+	var m10 = 83.99;
+	var m11 = 1295.01;
+	var m12 = 1.75;
+
+	var arr = [m1, m2, m3, m4, m5, m6,
+	m7, m8, m9, m10, m11, m12];
+
+	console.log(arr.reduce(function (x, y) {
+		return x + y;
+	}) / 12);
+</script>
+
+<!-- 37: 雇佣兵 -->
+<script type="text/javascript">
+	console.log("<!-- 37: 雇佣兵 -->");
+
+	var soldier =  {
+		battles: 0,
+		initM: 0,
+		M: 5,
+		N: 2,
+		X: 10,
+		rehabilitate: function () {
+			var x = Math.ceil(this.M / this.N);
+			this.X -= x;
+			this.initM = this.M;
+		},
+	};
+
+	function battle() {
+		
+		if(soldier.initM !== soldier.M) {
+			console.log("当前体力值为：" + soldier.initM + "，无法战斗！");
+			return;
+		}
+
+		soldier.battles++;
+		console.log("第" + soldier.battles + "次战斗。");
+
+		if(soldier.N <= soldier.M) {
+			soldier.N += Math.floor(soldier.M / soldier.N);
+			console.log("当前战斗力为：" + soldier.N);
+		} else {
+			console.log("战斗力爆表！不能再增加战斗力了。");
+		}
+
+		soldier.initM = 0;
+	}
+
+	(function init() {
+
+		if(soldier.X === 0) {
+			console.log("警报！警报！能量元素已经耗尽，不能参加战斗！");
+			return;
+		}
+		console.log(soldier);
+		soldier.rehabilitate();
+		battle();
+
+		init();
+	})();
+</script>
+
+<!-- 38: 计算多项式的导函数 -->
+<script></script>
+
+<!-- 16: 买房子 -->
+<script type="text/javascript">
+	console.log("<!-- 16: 买房子 -->");
+
+	var programer = 0;
+	var k = 10;
+	var house = 200;
+
+	for(var year = 1;year <= 20;year++) {
+		programer += 50;
+		
+		if(year !== 1) {
+			house *= (k / 100 + 1);
+		}
+		
+		if(programer >= house) {
+			console.log(year);
+			break;
+		}
+	}
+
+	if(programer < house) {
+		console.log("Impossible");
+	}
+</script>
+
+<!-- 1204. 因子个数 -->
+<script>
+	console.log("<!-- 1204: 因子个数 -->");
+
+	var integer = 30;
+	var pre = 1;
+	var next = integer;
+	var arr = [];
+
+	while(pre < next) {
+		if(!(integer % pre)) {
+			next = integer / pre;
+			arr.push(pre, next);
+		}
+
+		pre++;
+	}
+
+	console.log("一共循环了 " + (pre - 1) + " 次");
+	console.log(arr.sort(function(x, y) {
+		return x - y;
+	}));
+</script>
+
+<!-- 1023. 最大跨度 -->
+<script type="text/javascript">
+	console.log("<!-- 1023. 最大跨度 -->");
+
+	var n = 6;
+	var arr = [3, 0, 8, 7, 5, 9];
+	var max = arr[0];
+	var min = arr[0];
+
+	for(var i = 0;i < arr.length-1;i++) {
+		max = max >= arr[i+1] ? max : arr[i+1];
+		min = min <= arr[i+1] ? min : arr[i+1];
+	}
+
+	console.log(max - min);
+</script>
+
+<!-- 1022. 平均年龄 -->
+<script type="text/javascript">
+	console.log("<!-- 1022. 平均年龄 -->");
+
+	var arr = [17, 17];
+	var sum;
+
+	for (var i = arr.length - 1; i >= 0; i--) {
+		sum = arr[i] + arr[i+1];
+	}
+
+	var average = sum / arr.length;
+
+	var decimals = average - Math.floor(average);
+	decimals = Math.floor(decimals * 100);
+
+	if(decimals < 10) {
+		var decimalsStr = "." + decimals + "0";
+	} else {
+		var decimalsStr = "." + decimals;
+	}
+	
+	
+	var averageStr = Math.floor(average) +decimalsStr;
+	console.log(averageStr);
+</script>
+
+<!-- 1008. 水仙花数 -->
+<script>
+	console.log("<!-- 1008. 水仙花数 -->");
+
+	var  flower = 153;
+
+	var ten = flower % 10;
+	var hundred = (flower - flower % 10) / 10 % 10;
+	var thousand = (flower - flower % 100) / 100 % 10;
+
+	var ten3 = ten * ten * ten;
+	var hundred3 = hundred * hundred * hundred;
+	var thousand3 = thousand * thousand * thousand;
+
+	if(flower === ten3 + hundred3 + thousand3) {
+		console.log("YES");
+	} else {
+		console.log("NO");
+	}
+</script>
+
+<!-- 1007. 计算余数 -->
+<script type="text/javascript">
+	console.log("<!-- 1007. 计算余数 -->");
+
+	var a = 21;
+	var b = 4;
+
+	while(a >= b) {
+		a = a - b;
+	}
+
+	console.log(a);
+</script>
+
+<!-- 题目：输出斐波那契数列的前30项 -->
+<script type="text/javascript">
+	console.log("<!-- 题目：输出斐波那契数列的前30项 -->");
+	
+	var x = 0;
+	var y = 1;
+	var t;
+
+	for(var i = 0;i < 30;i++) {
+		console.log(y);
+		t = y;
+		y = x + y;
+		x = t;
+	}
+</script>
+
+<!-- 题目：给定一个数，取其整数部分，如1.5，返回1，-8.3，返回-8 -->
+<script>
+	console.log("题目：给定一个数，取其整数部分，如1.5，返回1，-8.3，返回-8");
+
+	var n = 7.3;
+
+	console.log(n - n % 1);
+</script>
+
+<!-- 题目：给定一个数，对其进行四舍五入，如1.4返回1，1.6返回2 -->
+<script>
+	console.log("题目：给定一个数，对其进行四舍五入，如1.4返回1，1.6返回2");
+
+	var n = -1.9;
+
+	var r = n % 1;
+	if(r >= 0.5) {
+		n = n + 1 - r;
+	} else {
+		n -= r;
+	}
+
+	console.log(n);
+</script>
+
+<!-- 辗转相除 / 辗转相减 -->
+<!-- 题目：给定两个数，求它们的最小公倍数和最大公约数。 -->
+<script>
+	console.log("题目：给定两个数，求它们的最小公倍数和最大公约数。");
+
+	var x = 3;
+	var y = 9;
+
+	var big;
+	var small;
+
+	function reset() {
+		if(x > y) {
+			big = x;
+			small = y;
+		} else {
+			big = y;
+			small= x;
+		}
+	}
+
+	//最小公倍数
+	reset();
+	while(big % small) {
+		big *= 2;
+	}
+	console.log("最小公倍数：" + big);
+
+	//最大公约数
+	reset();
+	var i = 1;
+	while(big % small) {
+		if(!(small % i)) {
+			small /= i;
+			console.log(small);
+			
+		}
+		i++;
+	}
+	console.log("最大公约数：" + small);
+</script>
+
+<!-- 题目：敲7。输出1到100以内所有7的倍数以及数字中包含7的数，如7（7的倍数），37（不是倍数但数位中包含7）都需要输出，依次类推 -->
+<script>
+	console.log("题目：敲7。输出1到100以内所有7的倍数以及数字中包含7的数，如7（7的倍数），37（不是倍数但数位中包含7）都需要输出，依次类推");
+
+	for(var i = 1;i <= 100;i++) {
+		if (!(i % 7)) {
+			console.log(i);
+			continue;
+		}
+
+		if(i % 10 === 7) {
+			console.log(i);
+			continue;
+		}
+
+		if((i - i % 10) / 10 % 10 === 7) {
+			console.log(i);
+			continue;
+		}
+	}
+</script>
+
+<!-- 二分法 -->
+<!-- 题目：不使用Math.sqrt，求一个非负数的平方根 -->
+<script type="text/javascript">
+	console.log("<!-- 题目：不使用Math.sqrt，求一个非负数的平方根 -->");
+
+	// 二分法 
+	function sqrt2(num) {
+		var left = 0;
+		var right = num;
+		var mid;
+
+		while(right - left > 0.000000001) {
+			mid = (right + left) / 2;
+
+			if(mid * mid === num) {
+				return mid;
+			} else if(mid * mid < num) {
+				left = mid;
+			} else {
+				right = mid;
+			}
+		}
+
+		return (right + left) / 2;
+	}
+	function sqrt(num) {
+		var i = 1;
+		var m = 1;
+		function core(i, m) {
+			if(i * i === num || m.toString().length === 7) {
+				console.log(i);
+				return;
+			} else if(i * i < num){
+				i = i + m;
+				core(i, m);
+			} else {
+				i = i - m;
+				core(i, m / 10);
+			}
+		}
+		core(i, m);
+	}
+
+	(function init() {
+		console.log(sqrt2(10));
+	})();
+</script>
+
+<!-- 题目：完全数。如果一个数的所有小于它的约数之和等于它自己，则它是一个完全数，例如6（1，2，3都是它的约数，它们的和正好为6）。找出100以内所有的完全数 -->
+<script>
+	console.log("题目：完全数。如果一个数的所有小于它的约数之和等于它自己，则它是一个完全数，例如6（1，2，3都是它的约数，它们的和正好为6）。找出100以内所有的完全数");
+
+	function isCompleteNum(num) {
+		var rootNum = Math.sqrt(num);
+		var sum = 0;
+
+		for(var i = 1;i <= rootNum;i++) {
+			var r = num % i;
+			if(!r) {
+				var n = num / i;
+				
+				if(i === n || i === 1) {
+					sum += i;
+				} else {
+					sum += i + n;
+				}
+			}
+		}
+
+		if(sum === num) {
+			return true;
+		}
+
+		return false;
+	}
+
+	for(var i = 2 ;i <= 100;i++) {
+		if(isCompleteNum(i)) {
+			console.log(i);
+		}
+	}
+</script>
+
+<!-- 题目：在控制输出九九乘法表。 -->
+<script type="text/javascript">
+	console.log("题目：在控制输出九九乘法表。");
+
+	for(var i = 1;i <= 9;i++) {
+		for(var j =i;j <= 9;j++) {
+			console.log(i + " x " + j + " = " + (i * j));
+		}
+	}
+</script>
+
+<!-- 题目：判断一个非负整数是否为回文数字，回文是指从左往右与从右往左读是一样的。
+例如：12321是回文数。12344321也是回文数。 -->
+<script>
+	console.log("题目：判断一个非负整数是否为回文数字，回文是指从左往右与从右往左读是一样的。例如：12321是回文数。12344321也是回文数。");
+
+	function numWidth(num) {
+		var w = 0;
+
+		if(num < 10) {
+			return 1;
+		}
+		while(num > 1) {
+			w++;
+			num /= 10;
+		}
+
+		return w;
+	}
+
+	function isPalindrome(num) {
+		var w = numWidth(num);
+		var reNum = 0;
+		var newNum = num;
+
+		for(var i = 1;i <= w;i++) {
+			var mode = 1;
+			var digit = newNum % 10;
+			for(var j = 0;j < (w - i);j++) {
+				mode *= 10;
+			}
+			reNum += digit * mode;
+			newNum = (newNum - digit) / 10
+		}
+
+		if(reNum === num) {
+			return true;
+		}
+
+		return false;
+	}
+
+	console.log(isPalindrome(12344321));
+</script>
+
+<!-- 题目：输入年份与月份，给出该年该月的第一天是星期几。
+例如，输入2016年，11月，输出“星期2” -->
+<script type="text/javascript">
+	console.log("题目：输入年份与月份，给出该年该月的第一天是星期几。\n例如，输入2016年，11月，输出“星期2”");
+
+	var getDays = function getDays(year, month) {
+		var gap = year - 2000;
+		if(Math.floor(gap / 4) === 0) {
+			var d = 1;
+		} else {
+			var d = Math.floor(gap / 4);
+		}
+		
+		var days = (year - 2000) * 365 + d;
+
+		switch(month - 1) {
+			case 11: 
+				days += 30;
+			case 10:
+				days += 31;
+			case 9: 
+				days += 30;
+			case 8:
+				days += 31;
+			case 7: 
+				days += 31;
+			case 6:
+				days += 30;
+			case 5: 
+				days += 31;
+			case 4: 
+				days += 30;
+			case 3:
+				days += 31;
+			case 2: {
+				if(!(year % 400) || year % 100 && !(year % 4)) {
+					days += 29;
+				} else {
+					days += 28
+				}
+			}
+			case 1: {
+				days += 31;
+			}
+		}
+
+		return days;
+	}
+
+	function whatDay(year, month, getDays) {
+		var order = getDays(year, month);
+		
+		switch(order % 7) {
+			case 0: 
+				console.log("星期六");
+				break;
+			case 1: 
+				console.log("星期天");
+				break; 
+			case 2: 
+				console.log("星期一");
+				break;
+			case 3: 
+				console.log("星期二");
+				break;
+			case 4: 
+				console.log("星期三");
+				break;
+			case 5: 
+				console.log("星期四");
+				break;
+			case 6: 
+				console.log("星期一");
+				break;
+		}
+	}
+
+	whatDay(2016, 11, getDays);
+</script>
+
+<!-- 题目：求s=a+aa+aaa+aaaa+aa...a的值，其中a是一个数字。例如2+22+222+2222+22222(此时共有5个数相加)，具体有几个数相加有通过输入或者函数的实际参数决定。 -->
+<script type="text/javascript">
+	console.log("<!-- 题目：求s=a+aa+aaa+aaaa+aa...a的值，其中a是一个数字。例如2+22+222+2222+22222(此时共有5个数相加)，具体有几个数相加有通过输入或者函数的实际参数决定。 -->");
+
+	function recursion(a, m) {
+		if(m <= 1) {
+			return a;
+		}
+
+		return a + 10 * recursion(a, m-1);
+	}
+
+	function add(a, n) {
+		var sum = 0;
+		while(n > 0) {
+			sum += recursion(a, n);
+			n--;
+		}
+
+		return sum;
+	}
+
+	console.log(add(2, 5));
+</script>
+
+<!-- 题目：将一个数字的各位加起来求和。如果该和大于10，将得到这个数字继续进行这种操作，直到其只有一位数。
+例如：459->4+6+9->19->1+9->10->1+0->1
+于是就输出1 -->
+<script type="text/javascript">
+	console.log("题目：将一个数字的各位加起来求和。如果该和大于10，将得到这个数字继续进行这种操作，直到其只有一位数例如：459->4+6+9->19->1+9->10->1+0->1于是就输出1");
+
+	function eachAdd(num) {
+
+		if(num < 10) {
+			return num;
+		}
+
+		var digit = num % 10;
+
+		return digit + eachAdd((num - digit) / 10);
+	}
+	
+	var num = 3;
+	
+	do {
+		num = eachAdd(num);
+	} while(num >= 10)
+	
+	console.log(num);
+</script>
+
+<!-- 题目：找出最小的能被1-20中每个数整除的数。-->
+<script>
+	console.log("题目：找出最小的能被1-20中每个数整除的数。");
+
+	function isF(x) {
+		for(var i = 1; i <= 20; i++) {
+			if(x % i) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	var n = 20;
+	while(true) {
+		if(isF(n)) {
+			console.log(n);
+			break;
+		}
+		n++;
+	}
+</script>
+
+<!-- 题目：找出唯一的满足a + b + c = 1000的毕达哥拉斯三元组{a, b, c}。
+一个毕达哥拉斯三元组是一个包含三个自然数的集合，a<b<c，满足条件：
+a^2 + b^2 = c^2例如：3^2 + 4^2 = 9 + 16 = 25 = 5^2.（说白了就是一组勾股数）
+已知存在并且只存在一个毕达哥拉斯三元组满足条件a + b + c = 1000。
+找出这个三元组。
+题目中a^b代表a的b次方（这是一个通用表示法） 。-->
+<script>
+	console.log("题目：找出唯一的满足a + b + c = 1000的毕达哥拉斯三元组{a, b, c}。一个毕达哥拉斯三元组是一个包含三个自然数的集合，a<b<c，满足条件：a^2 + b^2 = c^2例如：3^2 + 4^2 = 9 + 16 = 25 = 5^2.（说白了就是一组勾股数）已知存在并且只存在一个毕达哥拉斯三元组满足条件a + b + c = 1000。找出这个三元组。题目中a^b代表a的b次方（这是一个通用表示法） 。");
+	function f() {
+		var k;
+		var arr = [];
+		for(var i = 1; i < 201; i++) {
+			for(var j = 2; j < 376; j++) {
+				k = Math.sqrt(i * i + j * j);
+				if(k % 1 === 0 && i + j + k === 1000) {
+					arr.push(i, j, k);
+					return arr;
+				}
+			}
+		}	
+	}
+	
+	console.log(f());
+</script>
+
+<!-- 题目：给写n，求小于等于n的所有自然数平方和与和的平方之差，即：
+(1+2+3+...+n)**2 - (1**2+2**2+3**2+...+n**2) -->
+<script>
+	console.log("题目：给写n，求小于等于n的所有自然数平方和与和的平方之差，即：(1+2+3+...+n)**2 - (1**2+2**2+3**2+...+n**2)");
+
+	function addRecursion(n, pow) {
+		if(n === 1) {
+			return 1;
+		}
+		var n1 = n;
+		var n2 = addRecursion((n - 1), pow);
+		for(var i = 0; i < (pow - 1); i++) {
+			n1 *= n1;
+		}
+		return (n1 + n2);
+	}
+
+	var x = addRecursion(4, 1);
+	x *= x;
+	var y = addRecursion(4, 2);
+
+	console.log(x- y);
+</script>
+
+<!-- 题目：分解质因数。如12被分解成2*2*3 -->
+<script type="text/javascript">
+	console.log("题目：分解质因数。如12被分解成2*2*3");
+
+	function isPrime(num) {
+		if(num === 1) {
+			return false;
+		}
+
+		var n = Math.sqrt(num);
+		for(var i = 2; i <= n; i++) {
+			if(num % i === 0) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	var num = 12;
+	if(isPrime(num)) {
+		console.log(num + "是质 / 素数。");
+	} else {
+		for(var i = 2; i < num; i++) {
+			if(isPrime(i) && !(num % i)) {
+				console.log(i);
+				
+				var num = num / i;
+				if(isPrime(num)) {
+					console.log(num);
+				}
+				i = 2;
+			}
+		}
+	}
+</script>
+
+<!-- 作业：数列的前n项和，阶乘都使用递归实现一遍 -->
+<script type="text/javascript">
+	console.log("作业：数列的前n项和，阶乘都使用递归实现一遍");
+
+	//阶乘递归
+	function factorial(num) {
+		if(num === 1) {
+			return 1;
+		}
+
+		return num * factorial(num - 1);
+	}
+	console.log("阶乘：" + factorial(5));
+
+	//数列递归
+	function f1(n) {
+		if(n === 1) {
+			return 1;
+		}
+
+		return n + f1(n - 1);
+	}
+	console.log("数列：" + f1(5));
+</script>
+
+<!-- 作业：作用递归实现power函数的优化写法 -->
+<script type="text/javascript">
+	console.log("作业：作用递归实现power函数的优化写法");
+
+	function power(x, y) {
+		var boo = y % 2;
+
+		if(!boo) {
+			y = y / 2;
+		} else {
+			y = (y - 1) / 2;
+		}
+		
+		function pow(x, y) {
+			if(y === 1) {
+				return x;
+			}
+
+			return x * pow(x, y - 1);
+		}
+
+		var result = pow(x, y);
+
+		if(!boo) {
+			return result * result;
+		} else {
+			return result * result * x;
+		}
+
+	}
+
+	console.log(power(5, 9));
+</script>
+
+<!-- 观察fibb(100)会执行多久，并思考为什么。 -->
+<!-- <script>
+	console.log("观察fibb(100)会执行多久，并思考为什么。");
+
+	function fibb(n) {
+		if(n === 0) return 0;
+		if(n === 1) return 1;
+
+		console.log(fibb(n - 1) + fibb(n - 2));
+	}
+
+	console.log(fibb(10));
+</script> -->

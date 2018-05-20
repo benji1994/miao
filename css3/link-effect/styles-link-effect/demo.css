@@ -1,0 +1,70 @@
+/********* colors *******************/
+		.color-1 {
+			background: #435a6b;
+		}
+
+		.color-2 {
+			background: #f39c12;
+		}
+
+		.color-3 {
+			background: #2ac56c;
+		}
+
+		.color-4 {
+			background: #0e83cd;
+		}
+
+		.color-5 {
+			background: #cd4436;
+		}
+
+		.color-6 {
+			background: #f19f0f;
+		}
+
+		.color-7 {
+			background: #3fa46a;
+		}
+
+		.color-8 {
+			background: #ecf0f1;
+		}
+
+		.color-9 {
+			background: #9e487f;
+		}
+
+		.color-10 {
+			background: #16a085;
+		}
+
+		.color-11 {
+			background: #aab7b7;
+		}
+/********* css style ***********/
+		*,*::before,*::after {
+			box-sizing: border-box;
+		}
+		body {
+			font-family: "Raleway" sans-serif;
+			margin: 0;
+		}
+		section {
+			margin: 0 auto;
+			padding: 10em 3em;
+			text-align: center;
+		}
+
+		nav a {
+			display: inline-block;
+			margin: 15px 25px;
+			outline: none;
+			color: #fff;
+			text-decoration: none;
+			letter-spacing: 5px;
+			font-weight: 400;
+			text-shadow: 0 0 1px rgba(255,255,255,0.3);
+			font-size: 1.35em;
+			position: relative;
+		}

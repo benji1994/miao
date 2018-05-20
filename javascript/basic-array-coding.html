@@ -1,0 +1,293 @@
+<!-- 01:与指定数字相同的数的个数 -->
+<script type="text/javascript">
+	console.log("01:与指定数字相同的数的个数");
+
+	//输入
+	var len = 3;
+	var a1 = 2, a2 = 2, a3 = 2;
+	var m = 2;
+
+
+	var arr = new Array();
+	arr.length = len;
+	arr = [a1, a2, a3];
+
+	var count = 0;
+	for (var i = arr.length - 1; i >= 0; i--) {
+		if(arr[i] === m) {
+			count++;
+		}
+	}
+
+	console.log(count);
+
+</script>
+
+<!-- 02:陶陶摘苹果 -->
+<script>
+	console.log("02:陶陶摘苹果");
+
+	//输入
+	var apples = [100, 200, 150, 140, 129, 134, 167, 198, 200, 111];
+	var height = 110;
+
+	var maxHeight = height + 30;
+
+	console.log(apples.filter(function (x) {
+		return x <= maxHeight;
+	}));
+</script>
+
+<!-- 03:计算书费 -->
+<script>
+	console.log("03:计算书费");
+
+	//输入
+	var arr = [1, 5, 8, 10, 5, 1, 1, 2, 3, 4];
+
+	arrPrice = arr.map(function (x, index) {
+		switch(index) {
+			case 0:
+				return x * 28.9;
+			case 1:
+				return x * 32.7;
+			case 2:
+				return x * 45.6;
+			case 3:
+				return x * 78;
+			case 4:
+				return x * 35;
+			case 5:
+				return x * 86.2;
+			case 6:
+				return x * 27.8;
+			case 7:
+				return x * 43;
+			case 8:
+				return x * 56;
+			case 9:
+				return x * 65;
+		}
+	});
+
+	console.log(arrPrice.reduce(function (x, y) {
+		return x + y;
+	}));
+</script>
+
+<!-- 04:数组逆序重放 -->
+<script>
+	console.log("04:数组逆序重放")
+
+	//输入
+	var arr = [8, 6, 5, 4, 1]
+
+	console.log(arr.reverse())
+</script>
+
+<!-- 05:年龄与疾病 -->
+<script>
+	console.log("05:年龄与疾病")
+
+	//输入
+	var arr = [1, 11, 21, 31, 41, 51, 61, 71, 81, 91]
+
+	var arr0_18 = arr.filter(function (x) {
+		return 0 < x && x <= 18;
+	})
+
+	var arr19_35 = arr.filter(function (x) {
+		return 19 <= x && x <= 35;
+	})
+
+	var arr36_60 = arr.filter(function (x) {
+		return 36 <= x && x <= 60;
+	})
+
+	var arr61_ = arr.filter(function (x) {
+		return x >= 61;
+	})
+
+	console.log(arr0_18.length / arr.length * 100 + "%")
+	console.log(arr19_35.length / arr.length * 100 + "%")
+	console.log(arr36_60.length / arr.length * 100 + "%")
+	console.log(arr61_.length / arr.length * 100 + "%")
+
+</script>
+
+<!-- 06:校门外的树 -->
+<script>
+	console.log("06:校门外的树")
+
+	//输入
+	var L = 500
+	var M = 3
+	var area_1_left = 150
+	var area_1_right = 300
+	var area_2_left = 100
+	var area_2_right = 200
+	var area_3_left = 470
+	var area_3_right = 471
+
+	var arr = new Array()
+	for(var i = 1; i <= L + 1; i++) {
+		arr.push(i)
+	}
+
+	function removeArr(arr, initNum, len) {
+		for(var i = initNum; i <= len; i++) {
+			arr[i] = undefined
+		}
+
+		return arr
+	}
+
+	var newArr = removeArr(arr, area_1_left, area_1_right)
+	newArr = removeArr(arr, area_2_left, area_2_right)
+	newArr = removeArr(arr, area_3_left, area_3_right)
+
+	console.log(newArr)
+	console.log(newArr.filter(function (x) {
+		return x !== undefined
+	}))
+</script>
+
+<!-- 07:有趣的跳跃 -->
+<script type="text/javascript">
+	console.log("07:有趣的跳跃")
+
+	//输入
+	var arr = [1, 4, 2, 3]
+
+	var jolly = new Array()
+	for (var i = arr.length - 1; i >= 1; i--) {
+		jolly.push(Math.abs(arr[i] - arr[i - 1]))
+	}
+
+	jolly = jolly.sort(function (x, y) {
+		return x - y > 0
+	})
+
+	var boo = jolly.every(function (x, index) {
+		return x === (index +　1)
+	})
+
+	if(boo) {
+		console.log("Jolly")
+	} else {
+		console.log("No jolly")
+	}
+</script>
+
+<!-- 08:石头剪刀布 -->
+<script>
+	console.log("08:石头剪刀布")
+
+	//输入
+	var N = 10
+	var NA = 3
+	var NB = 4
+	var expreA = [0, 2, 5]
+	var expreB = [0, 5, 0, 2]
+
+	function setRule(exp) {
+		var rule = new Array()
+
+		while(rule.length < 10) {
+			for(var i = 0; i < exp.length; i++) {
+				rule.push(exp[i])
+			}
+		}
+
+		rule.length = 10
+
+		return rule
+	}
+
+	var ruleA = setRule(expreA)
+	var ruleB = setRule(expreB)
+
+	var A = 0
+	var B = 0
+	for(var i = 0; i < N; i++) {
+		if(ruleA[i] === 0 && ruleB[i] === 2) {
+			A++
+		}
+
+		if(ruleA[i] === 0 && ruleB[i] === 5) {
+			B++
+		}
+
+		if(ruleA[i] === 2 && ruleA[i] === 0) {
+			B++
+		}
+
+		if(ruleA[i] === 2 && ruleB[i] === 5) {
+			A++
+		}
+
+		if(ruleA[i] === 5 && ruleB[i] === 0) {
+			A++
+		}
+
+		if(ruleA[i] === 5 && ruleB[i] === 2) {
+			B++
+		}
+	}
+
+	if(A > B) {
+		console.log("A")
+	} else if(A < B) {
+		console.log("B")
+	} else {
+		console.log("draw")
+	}
+</script>
+
+<!-- 09:向量点积计算 -->
+<script type="text/javascript">
+	console.log("09:向量点积计算")
+
+	//输入
+	var a = [1, 4, 6]
+	var b = [2, 1, 5]
+
+	var a_b = a.map(function(x, i) {
+		return x * b[i]
+	})
+	console.log(a_b.reduce(function (x, y) {
+		return x + y
+	}))
+</script>
+
+<!-- 10:大整数加法 -->
+<script>
+	console.log("10:大整数加法")
+
+	//输入
+	var arr1 = [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
+	var arr2 = [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]
+
+	var arr = new Array();
+	var e = 0
+	for (var i = arr1.length - 1; i >= 0; i--) {
+		var sum = arr1[i] + arr2[i] + e
+		if( sum >= 10) {
+			arr.unshift(sum % 10)
+			e = 1
+		} else {
+			arr.unshift(sum)
+			e = 0
+		}
+	}
+
+	if(e === 1) {
+		arr.unshift(e)
+	}
+
+	var arrStr = arr.reduce(function (x, y) {
+		return x + y
+	}, "").trim()
+
+	console.log(arrStr)
+</script>

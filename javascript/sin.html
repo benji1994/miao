@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		span {
+			position: absolute;
+			display: block;
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			transform-origin: center center;
+		}
+	</style>
+
+</head>
+<body>
+
+	<script type="text/javascript">
+		var width = document.body.clientWidth
+		for(var i = 0; i < width; i++) {
+			document.write("<span style='background-color: hsl(" + i + ", 170%, 50%);transform: translateX(" + i + "px) translateY(" + ((Math.sin(i/90) * 150) + 200) + "px);'></span>")
+		}
+	</script>
+</body>
+</html>

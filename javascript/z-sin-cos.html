@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		span {
+			display: block;
+			position: absolute;
+			width: 2px;
+			height: 2px;
+			border-radius: 50%;
+			transform-origin: center;
+			background-color: red;
+			float: left;
+			transform: perspective(1000px);
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var width = document.body.clientWidth
+		//translateZ(" + Math.sin(i) * Math.cos(i) + 
+		for(var i = 0; i < width; i++) {
+			document.write("<span style='transform: translateX(" + i + "px translateZ(" + Math.sin(i/90) * Math.cos(i/90) + "px translateY(" + i + "px;'></span>")
+		}
+	</script>
+</body>
+</html>

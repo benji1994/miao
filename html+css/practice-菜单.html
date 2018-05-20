@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			background-color: gray;
+			width: 33%;
+			position: relative;
+		}
+		ul li {
+			padding: 10px 20px;
+		}
+		ul li:hover {
+			background-color: yellow;
+		}
+		ul ul {
+			position: absolute;
+			left: 100%;
+			top: 0;
+			background-color: rgba(0,0,0,0.1);
+			visibility: hidden;
+			transition: visibility 0s 1s linear;
+		}
+		ul  li:hover ul {
+			visibility: visible;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>手机 电话卡
+			<ul>
+				<li>01</li>
+				<li>02</li>
+				<li>03</li>
+				<li>04</li>
+				<li>05</li>
+			</ul>
+		</li>
+		<li>笔记本
+			<ul>
+				<li>001</li>
+				<li>002</li>
+				<li>003</li>
+			</ul>
+		</li>
+		<li>电视 盒子
+			<ul>
+				<li>01</li>
+				<li>02</li>
+				<li>03</li>
+				<li>04</li>
+				<li>05</li>
+				<li>06</li>
+			</ul>
+		</li>
+		<li>路由器 智能硬件</li>
+		<li>移动电源 电池 插线板</li>
+		<li>耳机 音箱</li>
+		<li>保护套 贴膜</li>
+		<li>线材 支架 存储卡</li>
+		<li>箱包 服饰 鞋 眼镜</li>
+		<li>米兔 生活周边</li>
+	</ul>
+</body>
+</html>

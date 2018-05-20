@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	    * {
+	    	box-sizing: border-box;
+	    }
+		body {
+			color: white;
+			font: 36px 微软雅黑;
+			font-weight: bold;
+			text-align: center;
+			margin: 0;
+			background: #f5f5f5;
+		}
+		#email {
+			display: flex;
+		}
+		#email section, main {
+			padding: 50px 10px;
+		}
+		#email section span {
+			font-size: 24px;
+		}
+		#email section.leftDiv {
+			width: 190px;
+			background-color: maroon;
+			flex-basis: 190px;
+			flex-shrink: 0;
+			flex-grow: 0;
+		}
+		#email main {
+			background-color: #E38712;
+			flex: auto;
+		}
+		#email section.rightDiv {
+			width: 310px;
+			background-color: navy;
+			flex-basis: 310px;
+			flex-shrink: 0;
+			flex-grow: 0;
+		}
+		@media (max-width: 890px) {
+			#email section.rightDiv {
+				display: none;
+			}
+		}
+		#mi {
+			margin: 30px 60px;
+			font: 14px 微软雅黑;
+			font-weight: normal;
+			position: relative;
+			width: 234px;
+			height: 460px;
+		}
+		#mi ul {
+			background-color: rgba(0,0,0,0.6);
+			color: #fff;
+			margin: 0;
+			list-style-type: none;
+			text-align: left;
+			padding: 20px 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 460px;
+		}
+		#mi ul li {
+			padding: 10px;
+		}
+		#mi li:hover {
+			background-color: #ff6700;
+		}
+		#mi .list {
+			position: absolute;
+			left: 100%;
+			top: 0;
+			height: 460px;
+			color: black;
+			flex-direction: column;
+			flex-wrap: wrap;
+			padding: 2px 0;
+			display: none;
+		}
+		#mi .list div {
+			width: 265px;
+			height: 76px;
+			line-height: 76px;
+			display: block;
+			text-align: center;
+		}
+		#mi li:hover > div {
+			display: flex;
+		}
+		#div10 {
+			margin: 30px 60px;
+			width: 1226px;
+			height: 628px;
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		#div10 div{
+			background-color: olive;
+			width: 234px;
+			height: 300px;
+			background-color: #fff;
+			transition: all 0.2 linear;
+		}
+		#div10 div:hover {
+			box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+			transform: translateY(-2px);
+		}
+		#div10 div:first-child {
+			width: 234px;
+			height: 628px;
+		}
+		#div10 > div:last-child {
+			display: flex;
+			flex-wrap: wrap;
+			align-content: space-between;
+			background: #f5f5f5;
+		}
+		#div10 > div:last-child:hover {
+			box-shadow: none;
+			transform: none;
+		}
+		#div10 div:last-child div {
+			width: 234px;
+			height: 143px;
+		}
+		#oald {
+			display: flex;
+		}
+		#oald > div {
+			width: 200px;
+			height: 1000px;
+			box-shadow: inset -3px 0 8px rgba(0,0,0,.3);
+			flex: auto;
+			background: -webkit-linear-gradient(rgba(234,238,243,.2),#EAEEF3),-webkit-linear-gradient(left,#EAEEF3,#EAEEF3 97%,#D3D7DB);
+		}
+		#oald > div:nth-child(2) {
+			width: 550px;
+			box-shadow: none;
+			background-color: #fff;
+			min-width: 300px;
+		}
+		#oald > div:nth-child(2) > div:first-child {
+			background-color: #fff;
+			width: 100%;
+			height: 72px;
+		}
+		#oald > div:nth-child(2) > div:last-child {
+			box-shadow: inset 0 5px 12px rgba(0,0,0,.3);
+			background-color: #fff;
+			width: 100%;
+			height: calc(100% - 72px);
+		}
+	</style>
+</head>
+	<div id="email">	
+		<section class="leftDiv">左边定宽</section>
+		<main>中间自适应</main>
+		<section class="rightDiv">右边定宽<br/><span>（小于890px消失）</span></section>
+	</div>
+	<div id="mi">
+		<ul>
+			<li>
+				手机 电话卡
+				<div class="list">
+					<div>小米1</div>
+					<div>小米2</div>
+					<div>小米3</div>
+					<div>小米4</div>
+					<div>小米5</div>
+					<div>小米6</div>
+					<div>小米7</div>
+					<div>小米8</div>
+					<div>小米9</div>
+					<div>小米10</div>
+					<div>小米11</div>
+					<div>小米12</div>
+					<div>小米13</div>
+					<div>小米14</div>
+					<div>小米15</div>
+					<div>小米16</div>
+					<div>小米17</div>
+					<div>小米18</div>
+				</div>
+			</li>
+			<li>
+				笔记本
+				<div class="list">
+					<div>小米1</div>
+					<div>小米2</div>
+					<div>小米3</div>
+					<div>小米4</div>
+					<div>小米5</div>
+					<div>小米6</div>
+					<div>小米7</div>
+					<div>小米8</div>
+					<div>小米9</div>
+					<div>小米10</div>
+					<div>小米11</div>
+					<div>小米12</div>
+					<div>小米13</div>
+				</div>
+			</li>
+			<li>
+				电视 盒子
+				<div class="list">
+					<div>小米1</div>
+					<div>小米2</div>
+					<div>小米3</div>
+					<div>小米4</div>
+					<div>小米5</div>
+					<div>小米6</div>
+					<div>小米7</div>
+					<div>小米8</div>
+					<div>小米9</div>
+					<div>小米10</div>
+					<div>小米11</div>
+					<div>小米12</div>
+					<div>小米13</div>
+					<div>小米14</div>
+					<div>小米15</div>
+					<div>小米16</div>
+					<div>小米17</div>
+					<div>小米18</div>
+					<div>小米19</div>
+				</div>
+			</li>
+			<li>
+				路由器 智能硬件
+				<div class="list">
+					<div>小米1</div>
+					<div>小米2</div>
+					<div>小米3</div>
+					<div>小米4</div>
+					<div>小米5</div>
+					<div>小米6</div>
+					<div>小米7</div>
+					<div>小米8</div>
+					<div>小米9</div>
+					<div>小米10</div>
+					<div>小米11</div>
+					<div>小米12</div>
+					<div>小米13</div>
+					<div>小米14</div>
+					<div>小米15</div>
+					<div>小米16</div>
+					<div>小米17</div>
+					<div>小米18</div>
+					<div>小米19</div>
+					<div>小米20</div>
+				</div>
+			</li>
+			<li>
+				移动电源 电池 插线板
+				<div class="list">
+					<div>小米1</div>
+					<div>小米2</div>
+					<div>小米3</div>
+					<div>小米4</div>
+					<div>小米5</div>
+					<div>小米6</div>
+					<div>小米7</div>
+				</div>
+			</li>
+			<li>
+				耳机 音箱
+				<div class="list">
+					<div>小米1</div>
+					<div>小米2</div>
+					<div>小米3</div>
+					<div>小米4</div>
+					<div>小米5</div>
+					<div>小米6</div>
+					<div>小米7</div>
+					<div>小米8</div>
+					<div>小米9</div>
+					<div>小米10</div>
+					<div>小米11</div>
+					<div>小米12</div>
+					<div>小米13</div>
+					<div>小米14</div>
+					<div>小米15</div>
+					<div>小米16</div>
+					<div>小米17</div>
+					<div>小米18</div>
+					<div>小米19</div>
+					<div>小米20</div>
+					<div>小米21</div>
+				</div>
+			</li>
+			<li>
+				保护套 贴膜
+				<div class="list">
+					<div>小米1</div>
+					<div>小米2</div>
+				</div>
+			</li>
+			<li>
+				线材 支架 存储卡
+				<div class="list">
+					<div>小米1</div>
+					<div>小米2</div>
+					<div>小米3</div>
+					<div>小米4</div>
+				</div>
+			</li>
+			<li>
+				箱包 服饰 鞋 眼镜
+				<div class="list">
+					<div>小米1</div>
+					<div>小米2</div>
+					<div>小米3</div>
+					<div>小米4</div>
+					<div>小米5</div>
+				</div>
+			</li>
+			<li>
+				米兔 生活周边
+				<div class="list">
+					<div>小米1</div>
+					<div>小米2</div>
+					<div>小米3</div>
+					<div>小米4</div>
+					<div>小米5</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div id="div10">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<div id="oald">
+		<div>OALD Se7en</div>
+		<div>
+			<div></div>
+			<div></div>
+		</div>
+		<div>Vocabulary</div>
+		<div>History</div>
+	</div>
+<body>
+</body>
+</html>

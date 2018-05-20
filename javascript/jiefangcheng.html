@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		div {
+			width: 450px;
+			margin: 50px auto;
+		}
+		input[type="text"] {
+			width: 30px;
+			padding-left: 2px;
+			box-sizing: border-box;
+		}
+		input[type="submit"] {
+			margin: 0 30px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<label>一元二次方程：（请输入系数）</label>
+		<br /><br />
+		<input type="text" name="" required="required">x^2&nbsp;&nbsp;+&nbsp;&nbsp;<input type="text" name="" required="required">x&nbsp;&nbsp;+&nbsp;&nbsp;<input type="text" name="" required="required">&nbsp;&nbsp;=&nbsp;&nbsp;0<input type="submit" name="" value="求解"><span></span>
+		<br /><br /><br /><br />
+		<label>二元一次方程：（请输入系数）</label>
+		<br /><br />
+		1: &nbsp;&nbsp;<input type="text" name="">x&nbsp;&nbsp;+&nbsp;&nbsp;<input type="text" name="">y&nbsp;&nbsp;=&nbsp;&nbsp;<input type="text" name="">
+		<br/><br/>
+		2: &nbsp;&nbsp;<input type="text" name="">x&nbsp;&nbsp;+&nbsp;&nbsp;<input type="text" name="">y&nbsp;&nbsp;=&nbsp;&nbsp;<input type="text" name=""><input type="submit" name="" value="求解"><span></span>
+	</div>
+	<script>
+		function valid(s1, s2, s3) {
+			for(var i = 0;i < arguments.length;i++) {
+				var s = arguments[i].trim();
+				if(!s) {
+					return false;
+				}
+			}
+			return true;
+		}
+		function getABC() {
+			var a = document.getElementsByTagName("input")[0].value;
+			var b = document.getElementsByTagName("input")[1].value;
+			var c = document.getElementsByTagName("input")[2].value;
+			if(!valid(a, b, c)) {
+				alert("error: 不能为空！");
+				return;
+			}
+			fun1(a, b, c);
+		}
+		function fun1(a, b, c) {
+			var delta = b * b - 4 * a * c;
+			var span = document.getElementsByTagName("span")[0];
+			if(Number.isNaN(delta)) {
+				span.innerHTML = "NaN";
+				span.style.color = "red";
+				return;
+			}
+			if(delta === 0) {
+				span.innerHTML = "此方程无解！";
+				span.style.color = "red";
+			} else if(delta > 0) {
+				var x1 = ((-b) + Math.sqrt(delta)) / (2 * a);
+				var x2 = ((-b) - Math.sqrt(delta)) / (2 * a);
+				span.innerHTML = "x1=" + x1 + ", x2=" + x2;
+				span.style.color = "blue";
+			} else {
+				span.innerHTML = "复数";
+			}
+		}
+		function getABC2() {
+			var a1 = document.getElementsByTagName("input")[4].value;
+			var b1 = document.getElementsByTagName("input")[5].value;
+			var c1 = document.getElementsByTagName("input")[6].value;
+			var a2 = document.getElementsByTagName("input")[7].value;
+			var b2 = document.getElementsByTagName("input")[8].value;
+			var c2 = document.getElementsByTagName("input")[9].value;
+			if(!valid(a1, b1, c1, a2, b2, c2)) {
+				alert("errow: 不能为空！");
+				return;
+			}
+			fun2(a1, b1, c1, a2, b2, c2);
+		}
+		function fun2(a1, b1, c1, a2, b2, c2) {
+			var test = (b1 * a2) - (b2 * a1);
+			var test2 = (c1 * a2) - (c2 * a1);
+			var span = document.getElementsByTagName("span")[1];
+			if(test !== 0) {
+				var x = (b1 * c2 - b2 * c1) / (b1 * a2 - b2 * a1);
+				var y = (c1 * a2 - c2 * a1) / (b1 *a2 - b2 * a1);
+				span.innerHTML = "x=" + x + ", y=" + y;
+				span.style.color = "blue";
+			} else if(test2 === 0) {
+				span.innerHTML = "方程组有无数解！";
+				span.style.color = "blue";
+			} else if(test2 !== 0) {
+				span.innerHTML = "方程组无解！";
+				span.style.color = "red";
+			}
+		}
+		(function init() {
+			var button1 = document.getElementsByTagName("input")[3];
+			button1.onclick = function(e) {
+				getABC();
+				e.preventDefault();
+			};
+			var button2 = document.getElementsByTagName("input")[10];
+			button2.onclick = function(e) {
+				getABC2();
+				e.preventDefault();
+			}
+		})();
+	</script>
+</body>
+</html>

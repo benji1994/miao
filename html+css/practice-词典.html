@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>词典布局</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		html,body {
+			height: 100%;
+			margin: 0;
+		}
+		section {
+			height: 100%;
+			position: relative;
+		}
+		aside,header,main {
+			position: absolute;
+		}
+		.l,.r1,.r2 {
+			width: 10vw;
+			height: 100%;
+		}
+		.l {
+			background-color: black;
+		}
+		header,main {
+			left: 10vw;
+			width: 70vw;
+		}
+		header {
+			height: 20vh;
+			background-color: maroon;
+			top: 0;
+		}
+		main {
+			background-color: yellow;
+			top: 20vh;
+			height: 80vh;
+		}
+		.r1,.r2 {
+			top: 0;
+		}
+		.r1 {
+			background-color: green;
+			right: 10vw;
+		}
+		.r2 {
+			right: 0;
+			background-color: navy;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<aside class="l"></aside>
+		<header></header>
+		<main></main>
+		<aside class="r1"></aside>
+		<aside class="r2"></aside>
+	</section>
+</body>
+</html>

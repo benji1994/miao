@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		h1 {
+			padding: 10px;
+			text-align: center;
+		}
+		.toc {
+			position: fixed;
+			top: 0px;
+			right: 10px;
+			background-color: gray;
+			border: 1px solid;
+			line-height: 30px;
+			color: white;
+			list-style: none;
+			padding: 5px;
+		}
+		.toc li {
+			padding: 3px;
+		}
+		.toc .active {
+			background-color: maroon;
+			opacity: 0.8;
+		}
+	</style>
+</head>
+<body>
+	<h1>标题一：Lorem ipsum dolor sit amet.</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, facilis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam minima accusantium architecto odit. At dignissimos soluta, aliquid laboriosam nobis cupiditate totam delectus, eveniet odio neque aut omnis sunt excepturi ipsam deserunt hic! Minima, accusantium eos corrupti consequatur nisi animi odit fugiat quasi dolor illo ipsam quia eum eaque quis deserunt quidem dignissimos distinctio exercitationem ut sint dolores quam. Itaque repudiandae, reprehenderit tempore quisquam nihil quos aut, magni sequi inventore animi in sint. Porro, expedita sequi. Quae veritatis soluta iste perspiciatis tempora sed velit ab distinctio neque ea a voluptate quod ut quas facilis fuga, temporibus voluptatibus, dolor, sequi nihil? Blanditiis.
+	<h1>标题二： Lorem ipsum dolor sit amet.</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, facilis.</p>
+	<p>Lorem ipsum dolor sit amet.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias amet, neque optio dicta asperiores dolore tempore accusantium iusto repudiandae beatae ex quaerat nam porro, expedita blanditiis et eveniet, eos nemo laboriosam placeat cupiditate. Dolorem quasi repudiandae iusto, temporibus accusantium enim, quos earum facere soluta odio reiciendis est blanditiis voluptates! Quasi, recusandae earum impedit vero laborum cumque, distinctio assumenda deserunt qui, magnam sunt illum ea sapiente mollitia repellendus optio iste dolores saepe voluptate sint animi. Sapiente consequatur provident nesciunt, quidem ab.
+	<h1>标题三：Lorem ipsum dolor sit amet.</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, facilis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis illo nam at eveniet quidem porro voluptatibus sapiente minima temporibus commodi repellendus, tenetur eos doloribus corrupti, recusandae quia, libero enim! Voluptas vitae unde beatae laboriosam necessitatibus nisi quasi ex nesciunt eius saepe ut veritatis, maiores nulla voluptate sequi obcaecati, earum enim nam. Voluptates hic reiciendis dolores molestiae porro a praesentium ea aperiam. Error doloremque magni voluptatum molestiae voluptates!</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita quasi saepe deleniti ipsum voluptatum, quisquam eum voluptate iste dignissimos, impedit.</p>
+	<h1>标题四：Lorem ipsum dolor sit amet.</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, facilis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+	<h1>标题五：Lorem ipsum dolor sit amet.</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, facilis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae cupiditate, repellat doloremque maxime sed consequuntur quis suscipit magnam unde magni! Fugiat earum iure ullam nesciunt nam voluptatibus eius hic nobis dolorem totam enim vel, est tempora quam eveniet ex recusandae unde architecto autem. Quia, ex.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae cupiditate, repellat doloremque maxime sed consequuntur quis suscipit magnam unde magni! Fugiat earum iure ullam nesciunt nam voluptatibus eius hic nobis dolorem totam enim vel, est tempora quam eveniet ex recusandae unde architecto autem. Quia, ex.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae cupiditate, repellat doloremque maxime sed consequuntur quis suscipit magnam unde magni! Fugiat earum iure ullam nesciunt nam voluptatibus eius hic nobis dolorem totam enim vel, est tempora quam eveniet ex recusandae unde architecto autem. Quia, ex.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae cupiditate, repellat doloremque maxime sed consequuntur quis suscipit magnam unde magni! Fugiat earum iure ullam nesciunt nam voluptatibus eius hic nobis dolorem totam enim vel, est tempora quam eveniet ex recusandae unde architecto autem. Quia, ex.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae cupiditate, repellat doloremque maxime sed consequuntur quis suscipit magnam unde magni! Fugiat earum iure ullam nesciunt nam voluptatibus eius hic nobis dolorem totam enim vel, est tempora quam eveniet ex recusandae unde architecto autem. Quia, ex.</p>
+	<h1>标题六：Lorem ipsum dolor sit amet.</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, facilis.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus veritatis odit facilis id cumque, sint vero voluptate deserunt eveniet laboriosam, impedit in vel, nam nulla, ab obcaecati. Omnis dolores amet voluptas repellendus ratione unde numquam ullam animi molestias non quod consequatur, at aperiam temporibus ipsam similique, adipisci, fugit alias. Dolorem molestiae repellat, nobis, nisi fugiat omnis?</p>
+	<script type="text/javascript">
+		function scrollspy() {
+			var titles = Array.from(document.querySelectorAll('h1'))
+			var toc = document.createElement('ul')
+			toc.classList.add('toc')
+
+			titles.forEach((item) => {
+				var tocli = document.createElement('li')
+				tocli.innerHTML= item.innerHTML
+				toc.appendChild(tocli)
+			})
+
+			document.body.appendChild(toc)
+
+			window.addEventListener('scroll', function() {
+				var poses = titles.map((item) => {
+					return item.getBoundingClientRect()
+				})
+
+				for(var i = 0; i < poses.length; i++) {
+					if(poses[i].bottom > 0)
+						break
+				}
+
+				Array.from(toc.children).forEach(item => {
+					item.classList.remove('active')
+				})
+
+				toc.children[i].classList.add('active')
+			})
+		}
+
+		window.onload = scrollspy
+
+		
+	</script>
+</body>
+</html>

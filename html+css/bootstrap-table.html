@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>为表格实现列的高亮，
+		同时还要求点击一下单元格，
+		该单元格所在的行和列持续高亮
+	</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100%);
+		}
+		td,th {
+			border: 1px solid #000;
+			padding: 10px;
+			position: relative;
+		}
+		td:hover::before {
+			content: "";
+			background-color: rgba(49,0,74,0.2);
+			display: block;
+			position: absolute;
+			top: -500%;
+			left: 0;
+			right: 0;
+			bottom: -500%;
+			pointer-events: none; 
+			z-index: -99999;
+		}
+		td:focus::before,th:focus::before {
+			content: "";
+			background-color: rgba(49,0,74,0.5);
+			display: block;
+			position: absolute;
+			top: -500%;
+			left: 0;
+			right: 0;
+			bottom: -500%;
+			pointer-events: none;
+			z-index: -99999;
+		}
+		td:focus::after,th:focus::after {
+			content: "";
+			background-color: rgba(49,0,74,0.5);
+			display:block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: -10000%;
+			right: -10000%;
+			pointer-events: none;
+			z-index: -99999;
+		}
+		td:focus,th:focus {
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<colgroup>
+			<col>
+			<col>
+			<col>
+			<col>
+		</colgroup>
+		<tr>
+			<th tabindex="6">#</th>
+			<th tabindex="6">First Name</th>
+			<th tabindex="6">Last Name</th>
+			<th tabindex="6">Username</th>
+		</tr>
+		<tr>
+			<td tabindex="6">1</td>
+			<td tabindex="6">Mark</td>
+			<td tabindex="6">Otto</td>
+			<td tabindex="6">@mdo</td>
+		</tr>
+		<tr>
+			<td tabindex="6">2</td>
+			<td tabindex="6">Mark</td>
+			<td tabindex="6">Otto</td>
+			<td tabindex="6">@TwBootstrap</td>
+		</tr>
+		<tr>
+			<td tabindex="6">3</td>
+			<td tabindex="6">Jacob</td>
+			<td tabindex="6">Thornton</td>
+			<td tabindex="6">@fat</td>
+		</tr>
+		<tr>
+			<td tabindex="6">4</td>
+			<td tabindex="6">Larry the Bird</td>
+			<td tabindex="6">Larry the Bird</td>
+			<td tabindex="6">@twitter</td>
+		</tr>
+	</table>
+</body>
+</html>

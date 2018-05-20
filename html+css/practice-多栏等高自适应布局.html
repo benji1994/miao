@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>多栏等高自适应布局</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+			background-color: rgba(0,0,0,0.1);
+		}
+		html,body {
+			height: 100%;
+			margin: 0;
+		}
+		section {
+			border: 1px solid yellow;
+			overflow: hidden;
+		}
+		.left {
+			width: 15%;
+			float: left;
+			background-color: purple;
+			height: 600px;
+			opacity: 0.5;
+		}
+		.right {
+			width: 15%;
+			float: right;
+			background-color: purple;
+			height: 100px;
+			opacity: 0.5;
+		}
+		main {
+			background-color: black;
+			opacity: 0.5;
+			color: yellow;
+			display: flow-root;
+		}
+		/********** 方案一 ***********/
+		section > * {
+			position: relative;
+		}
+		section > *::before {
+			content: "";
+			width: 100%;
+			height: 99999px;
+			background-color: inherit;
+			opacity: 0.5;
+			display: block;
+			position: absolute;
+		}
+		/************ 方案二 ************/
+		/*section > * {
+			padding-bottom: 9999px;
+			margin-bottom: -9999px;
+		}*/
+	</style>
+</head>
+<body>
+	<section>
+		<div class="left"></div>
+		<div class="right"></div>
+		<main>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur excepturi illo ipsum. Quam eaque temporibus commodi assumenda totam eum perspiciatis, animi accusantium quos libero quisquam, voluptate ullam iure exercitationem corporis nostrum doloremque aut quibusdam delectus, a, cupiditate neque? Nesciunt cum similique in aliquam a molestias veniam, ipsum voluptates illum consectetur maiores. Repellat eius nesciunt, excepturi quisquam totam quasi nam neque soluta voluptatibus. Provident distinctio quas, suscipit eligendi mollitia necessitatibus hic a ea harum quasi explicabo ipsam vero dicta dolores sunt beatae optio vitae incidunt. Similique iure alias voluptatibus modi saepe, tenetur beatae quaerat nam provident repudiandae, aliquid dolorum, pariatur ipsum.</main>
+	</section>
+</body>
+</html>

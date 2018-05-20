@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		class Pace {
+			constructor() {
+				this.el = document.createElement('div')
+				this.el.classList.add('pace')
+				this.el.style = `
+					position: fixed;
+					top: 0;
+					left: 0;
+					background-color: red;
+					height: 5px;
+					opacity: 1;
+					transition: all .4s;
+				`
+
+				this.el.style.width = '5%'
+				document.body.appendChild(this.el)
+			}
+
+			set(percentage) {
+				while(percentage > 1) {
+					percentage /= 10
+				}
+				this.el.style.width = percentage * 100 + '%'
+			}
+
+			add() {
+				var currWidth = parseInt(this.el.style.width)
+				if(currWidth > 95) {
+					return
+				}
+				this.el.style.width = currWidth + 5 + '%'
+			}
+
+			complete() {
+				this.el.style.width = '100%'
+				setTimeout(() => {
+					this.el.style.opacity = 0
+					setTimeout(() => {
+						this.el.parentNode.removeChild(this.el)
+					}, 400)
+				}, 500)
+			}
+		}
+	</script>
+</body>
+</html>

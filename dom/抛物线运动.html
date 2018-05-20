@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		button {
+			position: fixed;
+			left: 300px;
+			top: 600px;
+		}
+		.ball {
+			width: 100px;
+			height: 100px;
+			position: fixed;
+			background-color: red;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<button id="pao" onclick="requestAnimationFrame(startAnimate)">throw</button>
+	<script>
+		function cals抛物线方程() {
+			return x => 0.0003 * (x - 1000) ** 2 + 100
+		}
+		function startAnimate(time) {
+			var pao = document.querySelector('#pao')
+			var ball = null
+			var start
+			var f
+
+			start = time
+			var pageWidth = 1920
+
+			ball = document.createElement('span')
+			ball.classList.add('ball')
+			ball.style.top = 50 + '%'
+			ball.style.left = 50 + 'px'
+			document.body.appendChild(ball)
+
+			f = cals抛物线方程()
+
+			requestAnimationFrame(animate)
+
+			function animate(time) {
+				var x = (time - start) * 2
+				var y = f(x)
+
+				ball.style.left = x + 'px'
+				ball.style.top = y + 'px'
+
+				if(time - start < 2000) {
+					requestAnimationFrame(animate)
+				} else {
+					document.body.removeChild(ball)
+				}
+			}
+
+
+		}
+	</script>
+</body>
+</html>
